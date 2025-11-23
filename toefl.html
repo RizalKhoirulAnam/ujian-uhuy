@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEFL Simulation Test - Central Course Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Google Fonts for Certificate -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Pinyon+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Utility for selected state */
+        .opt-selected {
+            background-color: #eff6ff !important; /* bg-blue-50 */
+            border-color: #3b82f6 !important; /* border-blue-500 */
+            box-shadow: 0 0 0 1px #3b82f6 !important; /* ring-1 ring-blue-500 */
+        }
+        .opt-dot-selected {
+            background-color: #3b82f6 !important;
+            border-color: #3b82f6 !important;
+        }
+
+        /* --- CERTIFICATE STYLES --- */
+        .font-certificate-title { font-family: 'Cinzel', serif; }
+        .font-certificate-name { font-family: 'Pinyon Script', cursive; letter-spacing: 1px; } 
+        .font-certificate-body { font-family: 'Lato', sans-serif; }
+        
+        .certificate-pattern {
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .gold-border {
+            border: 2px solid #D4AF37;
+            outline: 4px solid #D4AF37;
+            outline-offset: 4px;
+        }
+
+        /* --- PRINT MEDIA QUERY --- */
+        @media print {
+            @page { size: landscape; margin: 0; }
+            body { background: white; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body > *:not(#certificate-container) { display: none !important; }
+            #certificate-container { display: flex !important; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: white; margin: 0; padding: 0; align-items: center; justify-content: center; }
+            #certificate-inner { transform: scale(0.9); box-shadow: none !important; margin: auto; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans h-screen flex flex-col overflow-hidden">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shadow-sm shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">C</div>
+            <h1 class="text-xl font-bold tracking-tight text-blue-900">TOEFL Simulation <span class="text-gray-400 text-sm font-normal">| Central Course Style</span></h1>
+        </div>
+        <div id="timer" class="text-gray-600 font-mono font-semibold bg-gray-100 px-3 py-1 rounded">00:00:00</div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="quiz-container" class="flex flex-1 overflow-hidden">
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 overflow-y-auto hidden md:flex">
+            <div class="p-4">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Sections</h2>
+                <nav class="space-y-2">
+                    <button onclick="switchSection('listening')" id="nav-listening" class="w-full text-left px-4 py-3 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-medium transition">
+                        1. Listening (50 Q)
+                    </button>
+                    <button onclick="switchSection('structure')" id="nav-structure" class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-600 border border-transparent transition">
+                        2. Structure (40 Q)
+                    </button>
+                    <button onclick="switchSection('reading')" id="nav-reading" class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-600 border border-transparent transition">
+                        3. Reading (50 Q)
+                    </button>
+                </nav>
+            </div>
+            <div class="mt-auto p-4 border-t border-gray-100">
+                <button onclick="finishTest()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg shadow-lg transition transform hover:-translate-y-0.5">
+                    Finish Test & See Score
+                </button>
+            </div>
+        </aside>
+        <section class="flex-1 bg-gray-50 overflow-y-auto p-4 md:p-8 relative" id="content-area">
+            <!-- Content via JS -->
+        </section>
+    </main>
+
+    <!-- RESULT MODAL -->
+    <div id="result-page" class="hidden fixed inset-0 bg-gray-900/80 z-50 overflow-y-auto backdrop-blur-sm">
+        <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden fade-in relative border border-gray-200">
+                <button onclick="document.getElementById('result-page').classList.add('hidden')" class="absolute top-4 right-4 text-white/80 hover:text-white z-10 bg-black/20 rounded-full p-1 hover:bg-black/40 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-8 text-center">
+                    <h2 class="text-3xl font-bold mb-2">Test Result</h2>
+                    <p class="text-blue-200">TOEFL Prediction Test</p>
+                </div>
+                <div class="p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-lg text-gray-500 mb-1">Selamat, <span id="user-name-display" class="font-bold text-gray-800">Student</span>!</h3>
+                        <p class="text-sm text-gray-400">Berikut adalah hasil analisis kemampuan bahasa Inggris kamu.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                            <div class="text-xs text-blue-600 font-bold uppercase mb-1">Listening</div>
+                            <div class="text-3xl font-bold text-blue-900" id="score-listening">--</div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-center">
+                            <div class="text-xs text-purple-600 font-bold uppercase mb-1">Structure</div>
+                            <div class="text-3xl font-bold text-purple-900" id="score-structure">--</div>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
+                            <div class="text-xs text-green-600 font-bold uppercase mb-1">Reading</div>
+                            <div class="text-3xl font-bold text-green-900" id="score-reading">--</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 text-white rounded-xl p-6 flex items-center justify-between shadow-lg mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold">Overall Score</h4>
+                            <p class="text-gray-400 text-xs">Range: 310 - 677</p>
+                        </div>
+                        <div class="text-5xl font-extrabold text-yellow-400" id="score-total">---</div>
+                    </div>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="location.reload()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">Tes Ulang</button>
+                        <button onclick="prepareAndPrintCertificate()" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg text-white hover:from-blue-700 hover:to-blue-800 font-medium shadow-md flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                            Cetak Sertifikat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE CONTAINER -->
+    <div id="certificate-container" class="hidden w-full h-full bg-white flex-col items-center justify-center certificate-pattern">
+        <div id="certificate-inner" class="relative w-[1000px] h-[700px] bg-white border-8 border-double border-gray-200 p-8 shadow-2xl m-auto gold-border flex flex-col items-center text-center">
+            <div class="absolute top-4 left-4 w-16 h-16 border-t-4 border-l-4 border-[#D4AF37]"></div>
+            <div class="absolute top-4 right-4 w-16 h-16 border-t-4 border-r-4 border-[#D4AF37]"></div>
+            <div class="absolute bottom-4 left-4 w-16 h-16 border-b-4 border-l-4 border-[#D4AF37]"></div>
+            <div class="absolute bottom-4 right-4 w-16 h-16 border-b-4 border-r-4 border-[#D4AF37]"></div>
+            
+            <div class="mt-10 mb-6">
+                <div class="w-16 h-16 bg-[#D4AF37] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 font-certificate-title">C</div>
+                <h1 class="text-5xl font-bold text-[#1a1a1a] font-certificate-title tracking-widest uppercase mb-2">Certificate</h1>
+                <p class="text-xl text-[#D4AF37] font-certificate-title tracking-[0.3em] uppercase">of Achievement</p>
+            </div>
+            <div class="w-full max-w-2xl text-gray-600 font-certificate-body mb-2">This certifies that</div>
+            <div class="text-5xl text-[#1a1a1a] font-certificate-name py-6 px-12 border-b border-gray-300 inline-block mb-6 min-w-[400px]">
+                <span id="cert-name">RIZAL KHOIRUL ANAM</span>
+            </div>
+            <div class="w-full max-w-2xl text-gray-600 font-certificate-body mb-8 leading-relaxed">
+                has successfully completed the <strong>TOEFL Prediction Test</strong> conducted by Central Course<br>
+                demonstrating proficiency in English language skills with the following results:
+            </div>
+            <div class="grid grid-cols-4 gap-4 w-full max-w-3xl mb-10">
+                <div class="p-3 border border-[#D4AF37]/30 bg-[#D4AF37]/5 rounded"><div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Listening</div><div class="text-2xl font-bold text-[#1a1a1a]" id="cert-score-l">0</div></div>
+                <div class="p-3 border border-[#D4AF37]/30 bg-[#D4AF37]/5 rounded"><div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Structure</div><div class="text-2xl font-bold text-[#1a1a1a]" id="cert-score-s">0</div></div>
+                <div class="p-3 border border-[#D4AF37]/30 bg-[#D4AF37]/5 rounded"><div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Reading</div><div class="text-2xl font-bold text-[#1a1a1a]" id="cert-score-r">0</div></div>
+                <div class="p-3 border border-[#D4AF37] bg-[#D4AF37] text-white rounded shadow-sm"><div class="text-xs text-white/80 uppercase tracking-wider mb-1">Total Score</div><div class="text-3xl font-extrabold" id="cert-score-total">0</div></div>
+            </div>
+            <div class="flex justify-between w-full max-w-3xl mt-auto items-end px-10 mb-4">
+                <div class="text-center"><div class="text-sm font-bold text-gray-800" id="cert-date"></div><div class="h-px w-40 bg-gray-400 mt-2"></div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wide">Date Issued</div></div>
+                <div class="w-24 opacity-50"><svg viewBox="0 0 100 100" class="w-full h-full fill-[#D4AF37]"><path d="M50 0 L61 35 H98 L68 57 L79 91 L50 70 L21 91 L32 57 L2 35 H39 Z" opacity="0.3"></path></svg></div>
+                <div class="text-center"><div class="font-certificate-name text-3xl text-gray-800" style="font-family: 'Great Vibes', cursive;">Central Course</div><div class="h-px w-40 bg-gray-400 mt-2"></div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wide">Academic Director</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const HARDCODED_NAME = "RIZAL KHOIRUL ANAM";
+        
+        // --- COMPLETE QUIZ DATA ---
+        const quizData = {
+            listening: [
+                { id: 1, audio_text: "Were you able to do the last problem in the math assignment? No, it was too hard for me.", question: "What does the man mean?", options: ["He finished the problem at last.", "He hardly worked on the math.", "It was hard for him to assign the math.", "The problem was very difficult."], answer: 3 },
+                { id: 2, audio_text: "You don't seem really happy with your exam results. Well, I didn't fail, but I also didn't pass by much.", question: "What does the man mean?", options: ["He didn't fail by much.", "He completely failed the exam.", "He had a really high grade.", "His grade was low but passing."], answer: 3 },
+                { id: 3, audio_text: "Where are the dirty clothes? Have you taken care of them? They're in the washing machine.", question: "What does the man mean?", options: ["The laundry is getting done.", "They are close to the cleaners.", "The woman should close the machine.", "He is watching someone clear the machine."], answer: 0 },
+                { id: 4, audio_text: "When do you think we should leave on our trip? If we leave on Tuesday, we won't have very much time for a visit. Why not leave on Monday instead of Tuesday?", question: "What does the woman suggest?", options: ["Leaving on Tuesday.", "Cutting their visit short.", "Changing the day of their departure.", "Postponing their visit to a later date."], answer: 2 },
+                { id: 5, audio_text: "What was in the letter from the landlord? It was not good news. The rent has been raised.", question: "What does the man mean?", options: ["The landlord has raised the rent.", "The landlord has received a letter with some bad news.", "The landlord will not increase the rent.", "The landlord will not rent them an apartment."], answer: 0 },
+                { id: 6, audio_text: "I've had to work way too many hours for the last two weeks. Your efforts have not been unappreciated.", question: "What does the woman mean?", options: ["He is always underappreciated.", "She is thankful for what he did.", "He has made no apparent effort.", "She feels little appreciation for his efforts."], answer: 1 },
+                { id: 7, audio_text: "Could you help me with this? I'll wash the lettuce if you'll make the dressing.", question: "What are the man and woman most likely doing?", options: ["Getting dressed.", "Making salad.", "Shopping for groceries.", "Washing clothes."], answer: 1 },
+                { id: 8, audio_text: "Is Jack going with us to the restaurant tonight? I was unable to convince him to go with us.", question: "What does the woman mean?", options: ["She convinced Jack to go.", "She will not be able to go to the restaurant.", "Jack has convinced her to go to a restaurant.", "Jack is not going."], answer: 3 },
+                { id: 9, audio_text: "Can you tell me how I can find the biology lab from here? Just go down those steps and enter the door after the first one.", question: "What should the man do?", options: ["Descend the stairs and go in the second door.", "Step around the building and enter through the first door.", "Go through the first door and go down the steps.", "Go down the hall and enter the doorway."], answer: 0 },
+                { id: 10, audio_text: "Is Professor Nash a good lecturer? He doesn't speak very loudly, but otherwise he's great.", question: "What does the woman say about Professor Nash?", options: ["She can see him very clearly.", "He speaks loudly.", "He’s very soft-spoken.", "She didn’t speak to him."], answer: 2 },
+                { id: 11, audio_text: "We have another history exam on Friday, and I hope this one isn't as hard as the last one. You can say that again.", question: "What does the woman mean?", options: ["She would like the man to repeat himself.", "The last exam was not very hard.", "She agrees with the man about the exam.", "The man has repeated himself several times."], answer: 2 },
+                { id: 12, audio_text: "Is the room ready for the conference? I don't think it's been set up.", question: "What does the man say about the room?", options: ["It has probably not been arranged.", "It is ready for the conference.", "It needs a set of chairs.", "It needs to be emptied."], answer: 0 },
+                { id: 13, audio_text: "Are you going to be able to stay up and study for the exam? I'm not sure. I'm on my last legs.", question: "What does the woman mean?", options: ["She’ll be able to stay up until the last moment.", "She’s been running for some time.", "She’s not sure when the last exam is.", "She’s really exhausted."], answer: 3 },
+                { id: 14, audio_text: "What did you think of the guest speaker? I was fascinated by his ideas.", question: "What does the man mean?", options: ["He fascinated the guests.", "The speaker’s ideas intrigued him.", "Giving speeches is fascinating.", "He was a guest of the speaker."], answer: 1 },
+                { id: 15, audio_text: "How's the weather today? It's just not as humid as it was last week.", question: "What does the man say about the weather?", options: ["It is quite humid this week.", "The humidity will last through the week.", "It is drier now.", "It was better just last week."], answer: 2 },
+                { id: 16, audio_text: "How did the professor react when you explained that you'd missed class because you were ill? She couldn't have been more understanding.", question: "What does the woman say about the professor?", options: ["She was extremely understanding.", "She couldn’t understand the explanation.", "She did not understand the problem.", "She missed class due to illness."], answer: 0 },
+                { id: 17, audio_text: "That was some air show. The skydivers pulled off some incredible feats. I thought so too. I just couldn't believe what I saw.", question: "What does the woman mean?", options: ["She didn’t see all of the show.", "The show was unbelievable.", "She doesn’t believe that the show really happened.", "The skydivers were pulled off their feet."], answer: 1 },
+                { id: 18, audio_text: "Do you think that the restaurant was too expensive? I was surprised at the prices. We barely had enough to cover the bill.", question: "What does the woman mean?", options: ["They were unable to pay the bill.", "The prices were surprisingly low.", "The restaurant was too expensive for them to try.", "They almost didn’t have enough to pay for the meal."], answer: 3 },
+                { id: 19, audio_text: "Are you going to be taking microbiology this semester? I wish I could put off taking it for another semester, but I can't.", question: "What does the man imply?", options: ["He has to take microbiology.", "He wishes he could take microbiology this semester.", "He is not enrolling in microbiology this semester.", "He had hoped to take microbiology this semester."], answer: 0 },
+                { id: 20, audio_text: "I'll see you at the first psychology lecture tomorrow. Then you did enroll in the course.", question: "What had the man assumed?", options: ["That she would take the course.", "That the first lecture would not be tomorrow.", "That he would not be in the course.", "That she would not register."], answer: 3 },
+                { id: 21, audio_text: "Let's look over the blueprints for the building one more time. Good idea. We need to be sure that the design is absolutely correct before construction begins.", question: "Who are these people most likely to be?", options: ["Construction workers.", "Architects.", "Insurance agents.", "Artists."], answer: 1 },
+                { id: 22, audio_text: "Did our team win the game? If the runner hadn't fallen, then our team would have won.", question: "What does the man imply?", options: ["The runner did not fail.", "The team won.", "The loss was the runner’s fault.", "The team won’t ever win a game."], answer: 2 },
+                { id: 23, audio_text: "That exam is going to be really difficult, and we have a lot of work to prepare for it. Let's get going on it now.", question: "What does the woman suggest?", options: ["Starting on their exam preparation.", "Leaving for the exam.", "Going home to study.", "Going to her job."], answer: 0 },
+                { id: 24, audio_text: "Are you happy that Kathy is one of the members of our group for the class project? I'm not really happy about it, but I can manage to get along with her to get the project done.", question: "What does the man say about Kathy?", options: ["She’s not a very good manager.", "He’ll be able to work reasonably well with her.", "He’s unhappy that there is a class project.", "He’s happy that she’s not part of the group."], answer: 1 },
+                { id: 25, audio_text: "Can you believe that the department has changed the requirements for our major? This change wasn't unexpected.", question: "What does the man mean?", options: ["He was not surprised by the change.", "He didn’t expect the change.", "The requirements have not changed.", "He expects to change his major."], answer: 0 },
+                { id: 26, audio_text: "I'm not sure if we should try to buy a house in a few years or keep on renting. We'll cross that bridge when we come to it.", question: "What does the woman mean?", options: ["The bridge is too hard to cross.", "They must pay rent for the bridge.", "They must cross a bridge to get to the house.", "They can decide later."], answer: 3 },
+                { id: 27, audio_text: "Did you enjoy the sightseeing trip that you took last week? It couldn't have been more perfect in any way.", question: "What does the woman mean?", options: ["The trip was less than perfect.", "There was nothing at all wrong with the trip.", "There wasn’t any way that she could take the trip.", "The trip could have been improved in a number of ways."], answer: 1 },
+                { id: 28, audio_text: "Were you able to deal with the part of the exam on medieval architecture? The topic was barely covered in the lectures, yet it was a major part of the exam.", question: "What does the man say about the topic?", options: ["It received more attention on the exam than it did in the lectures.", "It was a major part of all of the lectures.", "It was not on the exam at all.", "It received more attention in the lectures than it had on the exam."], answer: 0 },
+                { id: 29, audio_text: "I can't believe that there's going to be an exam tomorrow. I wish the professor had announced the exam a little bit earlier.", question: "What does the woman imply?", options: ["The professor made an early announcement about the exam.", "The professor failed to announce the exam.", "The professor announced the exam too soon.", "The professor did not give enough notice for the exam."], answer: 3 },
+                { id: 30, audio_text: "Here's a small gift for your birthday. It's something I know you like. So you did remember my birthday. Thank you so much.", question: "What had the woman assumed?", options: ["That he would remember her birthday.", "That he would bring her a gift.", "That he had forgotten her birthday.", "That he would get her something she didn’t like."], answer: 2 },
+                { id: 31, audio_text: "Man: Dora, could you please give me some help? ... I kept putting off my History 101 paper and it's due next week. ... Why don't you write about technology, inventions that changed American history?", question: "What does the man ask the woman to do?", options: ["To write his paper.", "To help him decide on a topic.", "To teach him about history.", "To discuss history with him."], answer: 1 },
+                { id: 32, audio_text: "Conversation about History 101 paper due next week.", question: "When in the semester does this conversation probably take place?", options: ["At the beginning of the semester.", "Before the start of the semester.", "Near the end of the semester.", "One week after the semester is finished."], answer: 2 },
+                { id: 33, audio_text: "Man: I don't want to write about wars... Woman: Why don't you write about technology... Man: That topic seems a little broad.", question: "Why won't the man choose technology as a topic?", options: ["The topic’s too general.", "He isn't interested in technology.", "He doesn't have enough time.", "Technology has nothing to do with American history."], answer: 0 },
+                { id: 34, audio_text: "Woman: Now, you'd better get busy. You only have one week.", question: "How much time does the man have to write the paper?", options: ["A month.", "The semester.", "Seven days.", "A day or two."], answer: 2 },
+                { id: 35, audio_text: "Conversation about apartment fire. Man: Did you hear the story... Woman: I heard something about it.", question: "What is the topic of this conversation?", options: ["Fire damage to some apartments.", "How to prevent fires.", "An apartment fire and what one can learn from it.", "An early morning news story."], answer: 2 },
+                { id: 36, audio_text: "Woman: One of the apartments was completely destroyed and several of the others were damaged.", question: "According to the woman, how extensively were the apartments damaged?", options: ["One was damaged more severely than the others.", "All the apartments were completely destroyed.", "There was one thousand dollars of damage.", "All twenty apartments suffered some damage."], answer: 0 },
+                { id: 37, audio_text: "Man: I hear that several residents were rushed to the hospital, but at least none of them died.", question: "What did the man say about some of the apartment residents?", options: ["They were killed.", "They were taken to the hospital.", "The damage to the apartments was more serious than the harm to the residents.", "They weren't frightened."], answer: 1 },
+                { id: 38, audio_text: "Man: I guess the best thing to protect yourself is to make sure that you have a smoke alarm and a fire extinguisher...", question: "What advice does the man give to the woman?", options: ["Call the fire department.", "Rush to the hospital.", "Listen for a smoke alarm.", "Have an alarm and extinguisher in good condition."], answer: 3 },
+                { id: 39, audio_text: "Talk to university students. I am Dean Peterson, the head of the Dance Department.", question: "Who is the speaker?", options: ["A professional dancer.", "A student in the dance department.", "The head of the dance department.", "A choreographer."], answer: 2 },
+                { id: 40, audio_text: "If you are majoring in dance, the most important decision you have to make is which degree you will get.", question: "What decision do the students have to make?", options: ["Which dance degree to take.", "Whether or not to major in dance.", "Whether to be a professional dancer or choreographer.", "Whether to specialize in dance therapy or dance history."], answer: 0 },
+                { id: 41, audio_text: "The first possible major... Bachelor of Performance Arts... intended for students who wish to pursue a professional performance career in dance or in choreography.", question: "A dance major with a Bachelor of Performance Arts degree might be interested in which area of work?", options: ["Physical therapy.", "Dance history.", "Choreography.", "Dance administration."], answer: 2 },
+                { id: 42, audio_text: "Either major is a four-year program...", question: "What is true about the dance degrees discussed in the talk?", options: ["They are both intended for professional dancers.", "They involve mostly the same courses.", "They do not need to be selected until later.", "They are both four-year programs."], answer: 3 },
+                { id: 43, audio_text: "Talk about Cajun Country. Now that we're all on the bus, I'd like to tell you a little bit about what we're going to be seeing today.", question: "Who is the speaker?", options: ["A Cajun.", "A tourist.", "An Acadian.", "A tour guide."], answer: 3 },
+                { id: 44, audio_text: "The Cajuns are descended from the Acadians... They brought their French culture with them... still speak French.", question: "What is true about the Cajuns?", options: ["They went to Acadia in the eighteenth century.", "They came from France in the eighteenth century.", "They maintained characteristics of their old culture.", "They assimilated completely into the new culture."], answer: 2 },
+                { id: 45, audio_text: "I hope you like spicy food, because any Cajun food that you eat on this trip is going to be spicy.", question: "What is Cajun food like?", options: ["Very spicy.", "Full of sugar.", "Salty.", "Full of tobacco."], answer: 0 },
+                { id: 46, audio_text: "Now settle back, relax, and enjoy the ride. I'll point out the interesting sights as we come to them.", question: "What will probably happen next?", options: ["An Acadian will give a talk.", "The bus ride will continue.", "They will stop in Lafayette.", "They will see the exhibition at Acadian Village."], answer: 1 },
+                { id: 47, audio_text: "Lecture about Radio. The development of the radio into a worldwide force occurred relatively quickly.", question: "What is the topic of this talk?", options: ["The purpose of the FCC.", "The relatively rapid development of radio.", "Interference from competing radio stations.", "The first U.S. radio station."], answer: 1 },
+                { id: 48, audio_text: "Lecture context: History of radio, FCC regulations.", question: "This lecture would probably be given in which course?", options: ["Introduction to Engineering.", "Popular Radio Programs.", "Ethics in Journalism.", "The History of Communication."], answer: 3 },
+                { id: 49, audio_text: "Radio broadcasting was initially totally uncontrolled...", question: "How could the situation in early radio broadcasting best be described?", options: ["The many radio stations were highly regulated.", "In 1930 there was only one radio station in the United States.", "The existing radio stations were totally uncontrolled.", "The FCC was unable to control the radio stations."], answer: 2 },
+                { id: 50, audio_text: "Federal Communications Commission, which is often referred to as the FCC...", question: "What do the initials FCC stand for?", options: ["First Communications Committee.", "First Control Committee.", "Federal Control of Communications.", "Federal Communications Commission."], answer: 3 }
+            ],
+            structure: [
+                { id: 1, question: "Measles is a highly contagious viral disease _______ by a characteristic skin rash.", options: ["accompany", "is accompanied", "accompanied", "it is accompanied"], answer: 2 },
+                { id: 2, question: "Charles Darwin's first scientific book published in 1842 _______ a since substantiated theory on the origin of coral reefs and atolls.", options: ["to present", "presented", "presenting", "it presents"], answer: 1 },
+                { id: 3, question: "Phytoplanktons thrive where _______ phosphorus into the upper layers of a body of water.", options: ["upwelling currents circulate", "the circulation of upwelling", "are upwelling currents", "circulates upwelling currents"], answer: 0 },
+                { id: 4, question: "The Missouri _______ longest river in the United States flows through seven states from its source in Montana to its confluence with the Mississippi.", options: ["River the", "River is the", "River is one of the", "River one of the"], answer: 0 },
+                { id: 5, question: "_______ radioisotope is encountered the first step in its identification is the determination of its half-life.", options: ["An unknown", "Afterwards an unknown", "When an unknown", "During an unknown"], answer: 2 },
+                { id: 6, question: "Hail forms within large dense cumulonimbus _______ develop on hot humid summer days.", options: ["clouds", "clouds that", "clouds that are", "clouds that they"], answer: 1 },
+                { id: 7, question: "Many bugs possess defensive scent glands and emit disagreeable odors when _______.", options: ["disturbed", "are disturbed", "they disturbed", "are they disturbed"], answer: 0 },
+                { id: 8, question: "On every continent except Antarctica _______ more than 30,000 species of spiders.", options: ["some are", "some of the", "are some of the", "is some"], answer: 2 },
+                { id: 9, question: "Hurricanes move with the large-scale wind currents _______ are imbedded.", options: ["that they", "which they", "in that they", "in which they"], answer: 3 },
+                { id: 10, question: "By the end of 1609 Galileo had a 20-power telescope that enabled him to see _______ planets revolving around Jupiter.", options: ["the call", "he called", "to call him", "what he called"], answer: 3 },
+                { id: 11, question: "Coral islands such as the Maldives are the tips of reefs built during periods of warm climate when _______ higher.", options: ["were sea levels", "sea had levels", "having sea levels", "sea levels were"], answer: 3 },
+                { id: 12, question: "Different hormones _______ at the same time on a particular target issue.", options: ["usually act", "usually acting", "they usual act", "the usual action"], answer: 0 },
+                { id: 13, question: "Most radioactive elements occur in igneous and metamorphic _______ fossils occur in sedimentary rocks.", options: ["rocks nearly all", "rocks but nearly all", "rocks nearly all are", "rocks which nearly all are"], answer: 1 },
+                { id: 14, question: "_______ the Earth's ice to melt the Earth's oceans would rise by about two hundred feet.", options: ["If all", "Were all", "If all were", "All was"], answer: 1 },
+                { id: 15, question: "The tidal forces on the Earth due to _______ only 0.46 of those due to the Moon.", options: ["the Sun is", "the Sun they are", "the Sun it is", "the Sun are"], answer: 3 },
+                { id: 16, question: "Tropical cyclones [alike] extratropical cyclones [which] derive much of [their] energy from the jet stream originate [far from] the polar front.", options: ["Alike", "Which", "Their", "Far from"], answer: 0 },
+                { id: 17, question: "[Present] in rocks of [all types] hematite is [particular] abundant in the sedimentary rocks [known] as red beds.", options: ["Present", "All types", "Particular", "Known"], answer: 2 },
+                { id: 18, question: "The surface of the planet Venus is [almost] completely [hid] by the [thick] clouds that [shroud] it.", options: ["Almost", "Hid", "Thick", "Shroud"], answer: 1 },
+                { id: 19, question: "[Established] in 1789 and operated by the Jesuits Georgetown University in Washington D.C. is the [older] Roman Catholic institution [of higher] learning [in] the United States.", options: ["Established", "Older", "Of higher", "In"], answer: 1 },
+                { id: 20, question: "Lake Tahoe [located] on the [eastern edge] of the Sierra Nevada range is [feed] by more than thirty mountain [streams].", options: ["Located", "Feed", "Eastern edge", "Streams"], answer: 1 },
+                { id: 21, question: "Each [number] on the Richter scale [represent] a tenfold increase in the amplitude of waves of [ground motion] recorded [during] an earthquake.", options: ["Number", "Represent", "Ground motion", "Recorded"], answer: 1 },
+                { id: 22, question: "Robert Heinlein was [instrumental] in [popularizing] science fiction with a [series] of stories that [is] first published in the Saturday Evening Post.", options: ["Instrumental", "Popularizing", "Series", "Is"], answer: 3 },
+                { id: 23, question: "Historical records [show] that Halley's comet has [return] about [every] seventy-six years for the [past] 2000 years.", options: ["Show", "Return", "About", "Past"], answer: 1 },
+                { id: 24, question: "Most of the [outer] planets [has] large swarms of satellites [surrounding] them.", options: ["Outer", "Has", "Surrounding", "Them"], answer: 1 },
+                { id: 25, question: "The [brilliantly] colored rhinoceros viper [has] two or three [horns] above each [nostrils].", options: ["Brilliantly", "Has", "Horn", "Nostrils"], answer: 3 },
+                { id: 26, question: "[During] the last Ice Age [which] ended about 10,000 years ago there was about three times [more] ice than [is] today.", options: ["During", "Which", "More", "Is"], answer: 3 },
+                { id: 27, question: "Viruses [are] extremely [tiny] parasites that are [able] to reproduce only within the cells of [theirs] hosts.", options: ["Viruses", "Extremely", "Able", "Theirs"], answer: 3 },
+                { id: 28, question: "The [carbon atoms] of the diamond are so [strongly] bonded that a diamond can only be [scratched] with [other] diamond.", options: ["Carbon atoms", "So strongly", "Scratched", "Other"], answer: 3 },
+                { id: 29, question: "In Roots Alex Haley uses [fictional] details to [embellish] a factual [histories] of [seven] generations of his family.", options: ["Fictional", "Embellish", "Histories", "Seven"], answer: 2 },
+                { id: 30, question: "Joseph Heller's novel Catch-22 [satirizes] both the [horrors] of war [as well as] the power of modern [bureaucratic] institutions.", options: ["Satirizes", "Horrors", "As well as", "Bureaucratic"], answer: 2 },
+                { id: 31, question: "In 1964 GATT established the International Trade Center in order [to assist] developing [countries] in the [promotion] of [its] exports.", options: ["To assist", "Developing", "Promotion", "Its"], answer: 3 },
+                { id: 32, question: "It is possible [to get] a sunburn on a [cloudy] day because eighty percent of the ultraviolet rays from the Sun [would] penetrate cloud [cover].", options: ["To get", "Cloudy", "Would", "Cover"], answer: 2 },
+                { id: 33, question: "Jaguarundis are sleek [long-tailed] creatures [colored] either [an] uniform reddish brown [or] dark grey.", options: ["Long-tailed", "Colored", "An", "Or"], answer: 2 },
+                { id: 34, question: "Elizabeth Cady Stanton organized the first U.S. [women's] rights [convention] in 1848 and was [instrumentally] in the struggle to win [voting and property] rights for women.", options: ["Women’s", "Rights", "Instrumentally", "Voting and property"], answer: 2 },
+                { id: 35, question: "The [incubation] period of tetanus is usually five to ten days and [the most] frequently [occurred] symptom is jaw [stiffness].", options: ["Incubation", "The most", "Occurred", "Stiffness"], answer: 2 },
+                { id: 36, question: "Kilauea's [numerous] eruptions are generally composed [in] molten lava with [little] escaping gas and [few] explosions.", options: ["Numerous", "In", "Little", "Few"], answer: 1 },
+                { id: 37, question: "As the [International Dateline at 180 degrees longitude is crossed] [westerly] it becomes [necessary] to change the date [by moving] it one day forward.", options: ["As the", "Westerly", "Necessary", "By moving"], answer: 1 },
+                { id: 38, question: "The more [directly] overhead the Moon is the [great] is the [effect] that it exhibits on the Earth.", options: ["Directly", "Great", "Is", "Effect"], answer: 1 },
+                { id: 39, question: "More than 600 [million] individual [bacteria] [lives] on the skin of [humans].", options: ["Million", "Bacteria", "Lives", "Humans"], answer: 2 },
+                { id: 40, question: "Melons [most probably] originated [in] Persia and were [introduced] the North American continent [during] the sixteenth century.", options: ["Most probably", "In", "Introduced", "During"], answer: 2 }
+            ],
+            reading: [
+                { id: 1, passage: "A rather surprising geographical feature of Antarctica is that a huge freshwater lake, one of the world’s largest and deepest, lies hidden there under four kilometers of ice. Now known as Lake Vostok, this huge body of water is located under the ice block that comprises Antarctica. The lake is able to exist in its unfrozen State beneath this block of ice because its waters are warmed by geothermal heat from the earth’s core. The thick glacier above Lake Vostok actually insulates it from the frigid temperatures (the lowest ever recorded on Earth) on the surface.\n\nThe lake was first discovered in the 1970s while a research team was conducting an aerial survey of the area. Radio waves from the survey equipment penetrated the ice and revealed a body of water of indeterminate size. It was not until much more recently that data collected by satellite made scientists aware of the tremendous size of the lake; the satellite-borne radar detected an extremely flat region where the ice remains level because it is floating on the water of the lake.\n\nThe discovery of such a huge freshwater lake trapped under Antarctica is of interest to the scientific community because of the potential that the lake contains ancient microbes that have survived for thousands upon thousands of years, unaffected by factors such as nuclear fallout and elevated ultraviolet light that have affected organisms in more exposed areas. The downside of the discovery, however, lies in the difficulty of conducting research on the lake in such a harsh climate and in the problems associated with obtaining uncontaminated samples from the lake without actually exposing the lake to contamination. Scientists are looking for possible ways to accomplish this.", question: "The purpose of the passage is to:", options: ["explain how Lake Vostok was discovered", "provide satellite data concerning Antarctica", "discuss future plans for Lake Vostok", "present an unexpected aspect of Antarctica’s geography"], answer: 3 },
+                { id: 2, passage: "Refers to Passage 1 (Lake Vostok).", question: "The word 'lies' in line 2 could best be replaced by:", options: ["sleeps", "sits", "tells falsehoods", "inclines"], answer: 1 },
+                { id: 3, passage: "Refers to Passage 1 (Lake Vostok).", question: "What is true of Lake Vostok?", options: ["It is completely frozen.", "It is not a saltwater lake.", "It is beneath a thick slab of ice.", "It is heated by the sun."], answer: 2 },
+                { id: 4, passage: "Refers to Passage 1 (Lake Vostok).", question: "Which of the following is closest in meaning to 'frigid' in line 6?", options: ["Extremely cold", "Never changing", "Quite harsh", "Rarely recorded"], answer: 0 },
+                { id: 5, passage: "Refers to Passage 1 (Lake Vostok).", question: "All of the following are true about the 1970 survey of Antarctica EXCEPT that it:", options: ["was conducted by air", "made use of radio waves", "did not measure the exact size of the lake", "was controlled by a satellite"], answer: 3 },
+                { id: 6, passage: "Refers to Passage 1 (Lake Vostok).", question: "It can be inferred from the passage that the ice would not be flat if:", options: ["there were no lake", "the lake were not so big", "Antarctica were not so cold", "radio waves were not used"], answer: 0 },
+                { id: 7, passage: "Refers to Passage 1 (Lake Vostok).", question: "The word 'microbes' in line 13 could best be replaced by which of the following?", options: ["Pieces of dust", "Trapped bubbles", "Tiny organisms", "Rays of light"], answer: 2 },
+                { id: 8, passage: "Refers to Passage 1 (Lake Vostok).", question: "The passage mentions which of the following as a reason for the importance of Lake Vostok to scientists?", options: ["It can be studied using radio waves.", "It may contain uncontaminated microbes.", "It may have elevated levels of ultraviolet light.", "It has already been contaminated."], answer: 1 },
+                { id: 9, passage: "Refers to Passage 1 (Lake Vostok).", question: "The word 'downside' in line 15 is closest in meaning to:", options: ["bottom level", "negative aspect", "underside", "buried section"], answer: 1 },
+                { id: 10, passage: "Refers to Passage 1 (Lake Vostok).", question: "The paragraph following the passage most probably discusses:", options: ["further discoveries on the surface of Antarctica", "problems with satellite-borne radar equipment", "ways to study Lake Vostok without contaminating it", "the harsh climate of Antarctica"], answer: 2 },
+                { id: 11, passage: "In the American colonies there was little money. England did not supply the colonies with coins and it did not allow the colonies to make their own coins, except for the Massachusetts Bay Colony, which received permission for a short period in 1652 to make several kinds of silver coins. England wanted to keep money out of America as a means of controlling trade: America was forced to trade only with England if it did not have the money to buy products from other countries. The result during this prerevolutionary period was that the colonists used various goods in place of money: beaver pelts, Indian wampum, and tobacco leaves were all commonly used substitutes for money. The colonists also made use of any foreign coins they could obtain. Dutch, Spanish, French, and English coins were all in use in the American colonies.\n\nDuring the Revolutionary War, funds were needed to finance the war, so each of the individual States and the Continental Congress issued paper money. So much of this paper money was printed that, by the end of the war, almost no one would accept it. As a result trade in goods and the use of foreign coins still flourished during this period.\n\nBy the time the Revolutionary War had been won by the American colonists, the monetary system was in a State of total disarray. To remedy this situation, the new Constitution of the United States, approved in 1789, allowed Congress to issue money. The individual States could no longer have their own money supply. A few years later, the Coinage Act of 1792 made the dollar the official currency of the United States and put the country on a bimetallic Standard. In this bimetallic system, both gold and silver were legal money, and the rate of exchange of silver to gold was fixed by the government at sixteen to one.", question: "The passage mainly discusses:", options: ["American money from past to present", "the English monetary policies in colonial America", "the effect of the Revolution on American money", "the American monetary system of the seventeenth and eighteenth centuries"], answer: 3 },
+                { id: 12, passage: "Refers to Passage 2 (American Money).", question: "The passage indicates that during the colonial period money was:", options: ["supplied by England", "coined by the colonists", "scarce", "used extensively for trade"], answer: 2 },
+                { id: 13, passage: "Refers to Passage 2 (American Money).", question: "The Massachusetts Bay Colony was allowed to make coins:", options: ["continuously from the inception of the colony", "throughout the seventeenth century", "from 1652 until the Revolutionary War", "for a short time during one year"], answer: 3 },
+                { id: 14, passage: "Refers to Passage 2 (American Money).", question: "The expression 'a means of' in line 4 could best be replaced by:", options: ["an example of", "a method for", "a result of", "a punishment for"], answer: 1 },
+                { id: 15, passage: "Refers to Passage 2 (American Money).", question: "Which of the following is NOT mentioned in the passage as a substitute for money during the colonial period?", options: ["Wampum", "Cotton", "Tobacco", "Beaver furs"], answer: 1 },
+                { id: 16, passage: "Refers to Passage 2 (American Money).", question: "The pronoun 'it' in line 12 refers to which of the following?", options: ["The Continental Congress", "Paper money", "The war", "Trade in goods"], answer: 1 },
+                { id: 17, passage: "Refers to Passage 2 (American Money).", question: "It is implied in the passage that at the end of the Revolutionary War a paper dollar was worth:", options: ["exactly one dollar", "just under one dollar", "just over one dollar", "almost nothing"], answer: 3 },
+                { id: 18, passage: "Refers to Passage 2 (American Money).", question: "The word 'remedy' in line 15 is closest in meaning to:", options: ["resolve", "understand", "renew", "medicate"], answer: 0 },
+                { id: 19, passage: "Refers to Passage 2 (American Money).", question: "How was the monetary system arranged in the Constitution?", options: ["Only the United States Congress could issue money.", "The United States officially went on a bimetallic monetary system.", "Various State governments including Massachusetts could issue money.", "The dollar was made the official currency of the United States."], answer: 0 },
+                { id: 20, passage: "Refers to Passage 2 (American Money).", question: "According to the passage, which of the following is NOT true about the bimetallic monetary system?", options: ["Either gold or silver could be used as official money.", "Gold could be exchanged for silver at a rate of sixteen to one.", "The monetary system was based on two metals.", "It was established in 1792."], answer: 1 },
+                { id: 21, passage: "Refers to Passage 2 (American Money).", question: "The word 'fixed' in line 19 is closest in meaning to:", options: ["discovered", "repaired", "valued", "set"], answer: 3 },
+                { id: 22, passage: "The human brain, with an average weight of 1.4 kilograms, is the control center of the body. It receives information from the senses, processes the information, and rapidly sends out responses; it also Stores the information that is the source of human thoughts and feelings. Each of the three main parts of the brain—the cerebrum, the cerebellum, and the brain stem—has its own role in carrying out these functions.\n\nThe cerebrum is by far the largest of the three parts, taking up 85 percent of the brain by weight. The outside layer of the cerebrum, the cerebral cortex, is a grooved and bumpy surface covering the nerve cells beneath. The various sections of the cerebrum are the sensory cortex, which is responsible for receiving and decoding sensory messages from throughout the body; the motor cortex, which sends action instructions to the skeletal muscles; and the association cortex, which receives, monitors, and processes information. It is in the association cortex that the processes that allow humans to think take place.\n\nThe cerebellum, located below the cerebrum in the back part of the skull, is made of masses of bunched up nerve cells. It is the cerebellum that Controls human balance, coordination, and posture.\n\nThe brain stem, which connects the cerebrum and the spinal cord, Controls various body processes such as breathing and heartbeat. It is the major motor and sensory pathway connecting the body and the cerebrum.", question: "What is the author’s main purpose?", options: ["To describe the functions of the parts of the brain", "To explain how the brain processes information", "To demonstrate the physical composition of the brain", "To give examples of human body functions"], answer: 0 },
+                { id: 23, passage: "Refers to Passage 3 (Human Brain).", question: "The word 'stores' in line 3 is closest in meaning to:", options: ["shops", "processes", "releases", "stockpiles"], answer: 3 },
+                { id: 24, passage: "Refers to Passage 3 (Human Brain).", question: "The passage states that the most massive part of the brain is the:", options: ["Cerebrum", "Cerebellum", "Cerebral cortex", "Brain stem"], answer: 0 },
+                { id: 25, passage: "Refers to Passage 3 (Human Brain).", question: "The 'cerebral cortex' in line 7 is:", options: ["a layer of the brain beneath the cerebrum", "a layer of nerve cells in the brain", "a part of the brain that makes up 85 percent of the brain", "a ridged layer covering the cerebrum in the brain"], answer: 3 },
+                { id: 26, passage: "Refers to Passage 3 (Human Brain).", question: "The sensory cortex:", options: ["senses that messages should be sent out to the muscles", "provides a surface covering for nerve cells", "is where the human process of thinking occurs", "receives and processes information from the senses"], answer: 3 },
+                { id: 27, passage: "Refers to Passage 3 (Human Brain).", question: "The word 'monitors' in line 11 is closest in meaning to which of the following?", options: ["Keeps track of", "Keeps hold of", "Gets away with", "Gets rid of"], answer: 0 },
+                { id: 28, passage: "Refers to Passage 3 (Human Brain).", question: "Which of the following is true about the cerebellum?", options: ["It is located above the cerebrum.", "It controls breathing.", "It is responsible for balance.", "It is the outside layer of the cerebrum."], answer: 2 },
+                { id: 29, passage: "Refers to Passage 3 (Human Brain).", question: "What shape does the brain stem most likely have?", options: ["Small and round", "Long and thin", "Large and formless", "Short and flat"], answer: 1 },
+                { id: 30, passage: "Refers to Passage 3 (Human Brain).", question: "Which of the following could best be used in place of 'pathway' in line 16?", options: ["Driveway", "Roadway", "Route", "Street"], answer: 2 },
+                { id: 31, passage: "Though Edmund Halley was most famous because of his achievements as an astronomer, he was a scientist of diverse interests and great skill. In addition to studying the skies, Halley was also deeply interested in exploring the unknown depths of the oceans. One of his lesser-known accomplishments that was quite remarkable was his design for a diving bell that facilitated exploration of the watery depths.\n\nThe diving bell that Halley designed had a major advantage over the diving bells that were in use prior to his. Earlier diving bells could only make use of the air contained within the bell itself, so divers had to surface when the air inside the bell ran low. Halley's bell was an improvement in that its design allowed for an additional supply of fresh air that enabled a crew of divers to remain underwater for several hours.\n\nThe diving contraption that Halley designed was in the shape of a bell that measured three feet across the top and five feet across the bottom and could hold several divers comfortably; it was open at the bottom so that divers could swim in and out at will. The bell was built of wood, which was first heavily tarred to make it water repellent and was then covered with a half-ton sheet of lead to make the bell heavy enough to sink in water. The bell shape held air inside for the divers to breathe as the bell sank to the bottom.\n\nThe air inside the bell was not the only source of air for the divers to breathe, and it was this improvement that made Halley’s bell superior to its predecessors. In addition to the air already in the bell, air was also supplied to the divers from a lead barrel that was lowered to the ocean floor close to the bell itself. Air flowed through a leather pipe from the lead barrel on the ocean floor to the bell. The diver could breath the air from a position inside the bell, or he could move around outside the bell wearing a diving suit that consisted of a lead bell-shaped helmet with a glass viewing window and a leather body suit, with a leather pipe carrying fresh air from the diving bell to the helmet.", question: "The subject of the preceding passage was most likely Halley's:", options: ["childhood", "work as an astronomer", "many different interests", "invention of the diving bell"], answer: 1 },
+                { id: 32, passage: "Refers to Passage 4 (Halley's Bell).", question: "Which of the following best expresses the subject of this passage?", options: ["Halley’s work as an astronomer", "Halley’s many different interests", "Halley’s invention of a contraption for diving", "Halley’s experiences as a diver"], answer: 2 },
+                { id: 33, passage: "Refers to Passage 4 (Halley's Bell).", question: "Halley’s bell was better than its predecessors because it:", options: ["was bigger", "provided more air", "weighed less", "could rise more quickly"], answer: 1 },
+                { id: 34, passage: "Refers to Passage 4 (Halley's Bell).", question: "The expression 'ran low' in line 8 is closest in meaning to:", options: ["moved slowly", "had been replenished", "sank to the bottom", "was almost exhausted"], answer: 3 },
+                { id: 35, passage: "Refers to Passage 4 (Halley's Bell).", question: "How long could divers stay underwater in Halley’s bell?", options: ["Just a few seconds", "Only a few minutes", "For hours at a time", "For days on end"], answer: 2 },
+                { id: 36, passage: "Refers to Passage 4 (Halley's Bell).", question: "It is NOT stated in the passage that Halley’s bell:", options: ["was wider at the top than at the bottom", "was made of tarred wood", "was completely enclosed", "could hold more than one diver"], answer: 0 },
+                { id: 37, passage: "Refers to Passage 4 (Halley's Bell).", question: "In which paragraph does the author describe the diving bells that preceded Halley's?", options: ["In the first paragraph", "In the second paragraph", "In the third paragraph", "In the last paragraph"], answer: 1 },
+                { id: 38, passage: "Refers to Passage 4 (Halley's Bell).", question: "This passage would most likely be assigned reading in a course on:", options: ["Astronomy", "Recreation", "Oceanography", "Physiology"], answer: 2 },
+                { id: 39, passage: "Refers to Passage 4 (Halley's Bell).", question: "The expression 'at will' in line 13 could best be replaced by:", options: ["in the future", "as they wanted", "with great speed", "upside down"], answer: 1 },
+                { id: 40, passage: "Refers to Passage 4 (Halley's Bell).", question: "It can be inferred from the passage that were Halley's bell not covered with lead it would:", options: ["Float", "Get wet", "Trap the divers", "Suffocate the divers"], answer: 0 },
+                { id: 41, passage: "Refers to Passage 4 (Halley's Bell).", question: "Where in the passage does the author indicate how air traveled from the barrel to the bell?", options: ["Lines 8-10", "Lines 11-13", "Lines 17-18", "Line 20"], answer: 3 },
+                { id: 42, passage: "Paul Bunyan is perhaps America’s best-known folk hero. A fictional logger of incredible strength, he was most likely based on an actual nineteenth-century logger from the northern United States or Canada. As a folk hero, he struck a chord with Americans on some level, perhaps because he was, incredibly strong but also because he was hard-working and capable, ingenious in solving problems, and fun-loving.\n\nThough there is evidence that Paul Bunyan tales were part of oral tradition in the nineteenth century, Paul Bunyan stories did not appear in written form until the early twentieth century. Journalist James McGillivray included descriptions of Bunyan in a series of essays entitled “The Round River Drive,\" which appeared in a number of Midwestern newspapers between 1906 and 1910. However, it was through an extensive advertising campaign that Paul Bunyan moved solidly into print.\n\nRecognizing the appeal of Paul Bunyan as a figure for his company’s advertising, William Laughead, an advertising executive for the Red River Lumber Company, initiated a campaign that consisted of a series of publications featuring Paul Bunyan. For several decades, the company distributed these publications free of charge and made no attempt to obtain a Copyright on them. In fact, the company vigorously encouraged other writers to make use of Paul Bunyan because it felt that the use of this character enhanced the name recognition of the Red River Lumber Company inasmuch as the name of the folk hero and the name of the company had become interwoven.\n\nThe Bunyan stories published by Red River and further circulated by others were tall tales of gigantic proportions. In these tales, Bunyan is depicted as a man of superhuman proportions, who is strong, hard-working, entrepreneurial, and innovative. In one story, for example, Paul is credited with digging the Great Lakes in order to create a watering hole for his giant ox, Babe. In another of these tales, Paul caused an entire winter of blue snow to fail by swearing a blue streak after he injured himself by smashing his thumb with a large hammer. A third story in the series describes Paul’s role in establishing the Mississippi River.\n\nFascination with Paul Bunyan has continued to grow, and today he is a Standard of American folklore. The prevalence of Bunyan as a figure of folklore today is evidenced by references to him in countless stories, cartoons, poems, and songs as well as the numerous community festivals and logging competitions featuring Paul Bunyan that can be found throughout the sections of the country where logging has a strong tradition.", question: "The purpose of this passage is to:", options: ["present the actual feats of a real-life logger", "discuss a 'larger than life' folk hero", "describe logging in North America", "provide an overview of American folktales"], answer: 1 },
+                { id: 43, passage: "Refers to Passage 5 (Paul Bunyan).", question: "It is NOT stated in the passage that Paul Bunyan is known for his:", options: ["unusual strength", "dedication to work", "ingenuity in difficult situations", "serious nature"], answer: 3 },
+                { id: 44, passage: "Refers to Passage 5 (Paul Bunyan).", question: "The passage states that Paul Bunyan tales first appeared:", options: ["in oral stories", "in a series of essays", "in newspapers", "in advertising"], answer: 0 },
+                { id: 45, passage: "Refers to Passage 5 (Paul Bunyan).", question: "Where in the passage does the author discuss a weather phenomenon that Paul Bunyan supposedly caused?", options: ["Lines 8-9", "Lines 14-15", "Lines 19-20", "Lines 22-24"], answer: 3 },
+                { id: 46, passage: "Refers to Passage 5 (Paul Bunyan).", question: "The word 'countless' in line 28 could best be replaced by the expression:", options: ["a large number of", "a specified number of", "an insubstantial number of", "an overestimated number of"], answer: 0 },
+                { id: 47, passage: "Refers to Passage 5 (Paul Bunyan).", question: "Which paragraph describes the plots of some of the tales of Paul Bunyan?", options: ["The second paragraph", "The third paragraph", "The fourth paragraph", "The fifth paragraph"], answer: 2 },
+                { id: 48, passage: "Refers to Passage 5 (Paul Bunyan).", question: "Which of the following CANNOT be inferred about the Red River Lumber Company's advertising campaign featuring Paul Bunyan?", options: ["It endured for quite a time.", "The company did not protect its ownership of the stories.", "The campaign did little to enhance the company’s profitability.", "The company wanted the name Paul Bunyan to be known as widely as possible."], answer: 2 },
+                { id: 49, passage: "Refers to Passage 5 (Paul Bunyan).", question: "The pronoun 'them' in line 15 refers to:", options: ["series", "decades", "publications", "writers"], answer: 2 },
+                { id: 50, passage: "Refers to Passage 5 (Paul Bunyan).", question: "The word 'interwoven' in line 18 could best be replaced by:", options: ["unfashionable", "mixed together", "not compatible", "too separate"], answer: 1 }
+            ]
+        };
+
+        const scoreTables = {
+            listening: [24,25,26,27,28,29,30,31,32,32,33,35,37,39,41,41,42,43,44,45,45,46,47,47,48,48,49,49,50,51,51,52,52,53,54,54,55,56,57,57,58,59,60,61,62,63,64,65,66,67,68],
+            structure: [20,20,21,22,23,25,26,27,29,31,33,35,36,37,38,40,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,60,61,63,65,67,68],
+            reading:   [20,21,22,23,23,24,25,26,28,29,30,31,32,34,35,36,37,38,39,40,41,42,43,43,44,45,46,46,47,48,48,49,50,51,52,52,53,54,55,56,57,58,59,60,61,62,63,65,66,67]
+        };
+
+        let currentSection = 'listening';
+        let userAnswers = { listening: {}, structure: {}, reading: {} };
+        let finalScores = { l: 0, s: 0, r: 0, total: 0 }; 
+
+        window.onload = () => {
+            document.getElementById('user-name-display').innerText = HARDCODED_NAME;
+            document.getElementById('cert-name').innerText = HARDCODED_NAME;
+            renderQuestions();
+            startTimer();
+        };
+
+        function switchSection(section) {
+            currentSection = section;
+            ['listening', 'structure', 'reading'].forEach(sec => {
+                const btn = document.getElementById(`nav-${sec}`);
+                if(btn) btn.className = sec === section 
+                    ? "w-full text-left px-4 py-3 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-medium transition"
+                    : "w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-600 border border-transparent transition";
+            });
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('content-area');
+            container.innerHTML = ''; 
+            const header = document.createElement('div');
+            header.className = "mb-6 border-b pb-4";
+
+            // Create Header Content
+            let sectionContent = `
+                <div class="flex justify-between items-center mb-4">
+                    <div><h2 class="text-2xl font-bold text-gray-800 capitalize">${currentSection} Section</h2><p class="text-gray-500 text-sm">Answer all questions provided.</p></div>
+                    <div class="text-sm font-bold bg-gray-200 px-3 py-1 rounded-full text-gray-600" id="counter-badge">${Object.keys(userAnswers[currentSection]).length} / ${quizData[currentSection].length} Answered</div>
+                </div>
+            `;
+
+            // Add Audio Player ONLY for Listening Section
+            if (currentSection === 'listening') {
+                sectionContent += `
+                    <div class="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm">
+                        <p class="text-sm font-bold text-blue-800 mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            Audio Listening Section
+                        </p>
+                        <audio controls class="w-full h-10" controlsList="nodownload">
+                            <source src="1728561865_LISTENING1.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-xs text-blue-600 mt-2">Note: This audio file covers all 50 listening questions.</p>
+                    </div>
+                `;
+            }
+
+            header.innerHTML = sectionContent;
+            container.appendChild(header);
+
+            quizData[currentSection].forEach((q, index) => {
+                const item = document.createElement('div');
+                item.className = "bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-4 hover:border-blue-300 transition duration-200";
+                
+                let mediaHTML = '';
+                if(currentSection === 'listening') {
+                    mediaHTML = `<div class="bg-gray-100 p-3 rounded mb-3 text-xs text-gray-500 italic border-l-4 border-gray-300">Transcript Hint: "${q.audio_text}"</div>`;
+                } else if (currentSection === 'reading' && q.passage) {
+                     // Show passage if it's the first question of the block OR it's a new passage
+                     const prevQ = quizData[currentSection][index - 1];
+                     if (!prevQ || prevQ.passage !== q.passage) {
+                        mediaHTML = `<div class="bg-gray-50 p-4 rounded border border-gray-200 mb-4 font-serif leading-relaxed text-gray-700 text-sm whitespace-pre-wrap"><strong>Passage:</strong>\n${q.passage}</div>`;
+                     }
+                }
+
+                const optionsHTML = q.options.map((opt, optIndex) => {
+                    const isSelected = userAnswers[currentSection][q.id] === optIndex;
+                    const selectedClass = isSelected ? 'opt-selected' : 'border-gray-200 hover:bg-gray-50';
+                    const dotSelected = isSelected ? 'opt-dot-selected' : '';
+                    const dotInner = isSelected ? '<div class="w-2 h-2 bg-white rounded-full"></div>' : '';
+                    return `<div id="opt-${currentSection}-${q.id}-${optIndex}" onclick="handleAnswer(${q.id}, ${optIndex})" class="flex items-center p-3 rounded-lg cursor-pointer border transition-all ${selectedClass} mb-2"><div id="dot-${currentSection}-${q.id}-${optIndex}" class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-3 transition-colors ${dotSelected}">${dotInner}</div><span class="text-sm text-gray-700"><span class="font-bold mr-1">${String.fromCharCode(65 + optIndex)}.</span> ${opt}</span></div>`;
+                }).join('');
+
+                item.innerHTML = `<div class="flex gap-4"><span class="text-lg font-bold text-blue-900/50 font-mono">${index + 1}.</span><div class="w-full">${mediaHTML}<p class="font-medium text-gray-800 mb-4">${q.question}</p><div class="space-y-0">${optionsHTML}</div></div></div>`;
+                container.appendChild(item);
+            });
+
+            const footerNav = document.createElement('div');
+            footerNav.className = "mt-8 flex justify-end pb-10";
+            if(currentSection !== 'reading') {
+                const nextSec = currentSection === 'listening' ? 'structure' : 'reading';
+                footerNav.innerHTML = `<button onclick="switchSection('${nextSec}')" class="flex items-center gap-2 bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-black transition">Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>`;
+            } else {
+                footerNav.innerHTML = `<button onclick="finishTest()" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 shadow-lg transition font-bold">Submit & Finish</button>`;
+            }
+            container.appendChild(footerNav);
+        }
+
+        function handleAnswer(qId, optIndex) {
+            userAnswers[currentSection][qId] = optIndex;
+            const currentQ = quizData[currentSection].find(q => q.id === qId);
+            currentQ.options.forEach((_, idx) => {
+                const optDiv = document.getElementById(`opt-${currentSection}-${qId}-${idx}`);
+                const dotDiv = document.getElementById(`dot-${currentSection}-${qId}-${idx}`);
+                if (idx === optIndex) {
+                    optDiv.classList.add('opt-selected');
+                    optDiv.classList.remove('border-gray-200', 'hover:bg-gray-50');
+                    dotDiv.classList.add('opt-dot-selected');
+                    dotDiv.innerHTML = '<div class="w-2 h-2 bg-white rounded-full"></div>';
+                } else {
+                    optDiv.classList.remove('opt-selected');
+                    optDiv.classList.add('border-gray-200', 'hover:bg-gray-50');
+                    dotDiv.classList.remove('opt-dot-selected');
+                    dotDiv.innerHTML = '';
+                }
+            });
+            document.getElementById('counter-badge').innerText = `${Object.keys(userAnswers[currentSection]).length} / ${quizData[currentSection].length} Answered`;
+        }
+
+        function finishTest() {
+            try {
+                const raw = {
+                    l: calculateRaw('listening'),
+                    s: calculateRaw('structure'),
+                    r: calculateRaw('reading')
+                };
+                
+                const getConverted = (section, score) => {
+                   const table = scoreTables[section];
+                   return table[Math.min(score, table.length - 1)] || table[0]; 
+                };
+
+                finalScores = {
+                    l: getConverted('listening', raw.l),
+                    s: getConverted('structure', raw.s),
+                    r: getConverted('reading', raw.r)
+                };
+                finalScores.total = Math.round(((finalScores.l + finalScores.s + finalScores.r) * 10) / 3);
+
+                document.getElementById('score-listening').innerText = finalScores.l;
+                document.getElementById('score-structure').innerText = finalScores.s;
+                document.getElementById('score-reading').innerText = finalScores.r;
+                document.getElementById('score-total').innerText = finalScores.total;
+                document.getElementById('result-page').classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                alert("Error calculating score.");
+            }
+        }
+
+        function calculateRaw(section) {
+            let correct = 0;
+            quizData[section].forEach(q => {
+                if (userAnswers[section][q.id] === q.answer) correct++;
+            });
+            return correct;
+        }
+
+        function prepareAndPrintCertificate() {
+            document.getElementById('cert-score-l').innerText = finalScores.l;
+            document.getElementById('cert-score-s').innerText = finalScores.s;
+            document.getElementById('cert-score-r').innerText = finalScores.r;
+            document.getElementById('cert-score-total').innerText = finalScores.total;
+            document.getElementById('cert-date').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            window.print();
+        }
+
+        function startTimer() {
+            let seconds = 0;
+            const timerEl = document.getElementById('timer');
+            setInterval(() => {
+                seconds++;
+                const date = new Date(0);
+                date.setSeconds(seconds);
+                if(timerEl) timerEl.innerText = date.toISOString().substr(11, 8);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

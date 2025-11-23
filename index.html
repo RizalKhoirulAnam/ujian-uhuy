@@ -1,0 +1,138 @@
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Ujian</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Animasi Background Bergerak */
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container dengan efek Glassmorphism */
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Animasi masuk container */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Styling Tombol */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Warna khusus untuk HSK */
+        .btn-hsk {
+            background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%);
+            background-size: 200% auto;
+        }
+
+        /* Warna khusus untuk TOEFL */
+        .btn-toefl {
+            background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%);
+            background-size: 200% auto;
+        }
+
+        /* Efek Hover pada Tombol */
+        .btn:hover {
+            background-position: right center; /* Efek geser warna */
+            transform: translateY(-3px) scale(1.02); /* Efek angkat dan perbesar sedikit */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.95); /* Efek tekan */
+        }
+
+        /* Animasi masuk tombol bertahap */
+        .btn-hsk { animation: slideInLeft 0.8s ease-out 0.3s both; }
+        .btn-toefl { animation: slideInRight 0.8s ease-out 0.5s both; }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pilih Jenis Ujian</h1>
+        
+        <a href="hsk5.html" class="btn btn-hsk">
+            🇨🇳 Ujian HSK 5
+        </a>
+
+        <a href="toefl.html" class="btn btn-toefl">
+            🇺🇸 Ujian TOEFL
+        </a>
+    </div>
+
+</body>
+</html>
