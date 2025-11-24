@@ -1,0 +1,1369 @@
+<html lang="en-US" class=""><style>.app-crx-show-flight-price-compare {
+  width: 320px;
+  overflow: hidden;
+  position: fixed;
+  border-radius: 8px;
+  right: 20px;
+  top: 20px;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0px 8px 16px 0px rgba(69, 88, 115, 0.12);
+  color: #8592a6;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  font-family: system-ui;
+  text-align: left;
+}
+.app-crx-show-flight-price-compare .flex,
+.app-crx-show-flight-price-compare .flex-column,
+.app-crx-show-flight-price-compare .v-center,
+.app-crx-show-flight-price-compare .h-center,
+.app-crx-show-flight-price-compare .flex-column-center,
+.app-crx-show-flight-price-compare .flex-center {
+  display: -webkit-flex;
+  display: flex;
+}
+.app-crx-show-flight-price-compare .flex1 {
+  flex: 1 1 auto;
+}
+.app-crx-show-flight-price-compare .h-flex-center,
+.app-crx-show-flight-price-compare .h-center,
+.app-crx-show-flight-price-compare .flex-column-center,
+.app-crx-show-flight-price-compare .flex-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.app-crx-show-flight-price-compare .v-flex-center,
+.app-crx-show-flight-price-compare .v-center,
+.app-crx-show-flight-price-compare .flex-center {
+  -webkit-align-items: center;
+  align-items: center;
+}
+.app-crx-show-flight-price-compare .flex-between {
+  justify-content: space-between;
+}
+.app-crx-show-flight-price-compare .flex-column {
+  flex-direction: column;
+}
+.app-crx-show-flight-price-compare .flex-column-center {
+  flex-direction: column;
+}
+.app-crx-show-flight-price-compare .ml-4 {
+  margin-left: 4px;
+}
+.app-crx-show-flight-price-compare .mr-4 {
+  margin-right: 4px;
+}
+.app-crx-show-flight-price-compare .mr-16 {
+  margin-right: 16px;
+}
+.app-crx-show-flight-price-compare .ft-12 {
+  font-size: 12px;
+  line-height: 18px;
+}
+.app-crx-show-flight-price-compare .align-center {
+  align-items: center;
+}
+.app-crx-show-flight-price-compare .justify-around {
+  justify-content: space-around;
+}
+.app-crx-show-flight-price-compare .flex-wrap {
+  flex-wrap: wrap;
+}
+.app-crx-show-flight-price-compare .color-black {
+  color: #0f294d;
+}
+.app-crx-show-flight-price-compare .color-cyan {
+  color: #06aebd;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .header-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 16px 16px 0;
+}
+.app-crx-show-flight-price-compare .header-wrapper.bold {
+  justify-content: flex-start;
+}
+.app-crx-show-flight-price-compare .header-wrapper.bold .header-text {
+  font-size: 16px;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-icon {
+  width: 44px;
+  height: 44px;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-icon .img {
+  transform: scale(0.5, 0.5);
+  max-width: 100%;
+  border-radius: 50%;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-text {
+  color: #3264ff;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  height: 22px;
+  letter-spacing: 0px;
+  line-height: 22px;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-close {
+  cursor: pointer;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-close span {
+  text-align: center;
+  color: #ced2d9;
+  font-size: 22px;
+}
+.app-crx-show-flight-price-compare .header-wrapper .header-close path {
+  fill: #8592a6;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper {
+  border-radius: 0px 0px 4px 4px;
+}
+.app-crx-show-flight-price-compare .tags {
+  display: flex;
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .tags .flight-tag {
+  background-color: rgba(50, 100, 255, 0.08);
+  color: #3264ff;
+  padding: 4px;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0px;
+  line-height: 18px;
+  border-radius: 4px 4px 0px 0px;
+}
+.app-crx-show-flight-price-compare .tags .compare-tag {
+  padding: 2px 4px;
+  background: rgba(50, 100, 255, 0.08);
+  color: #3264ff;
+  border-radius: 1px;
+}
+.app-crx-show-flight-price-compare .flightdetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-crx-show-flight-price-compare .flightdetail .from-wrapper .date,
+.app-crx-show-flight-price-compare .flightdetail .to-wrapper .date {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .flightdetail .from-wrapper .time,
+.app-crx-show-flight-price-compare .flightdetail .to-wrapper .time {
+  color: #0f294d;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .flightdetail .to-wrapper {
+  text-align: right;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper {
+  background-color: #f5f7fa;
+  padding: 8px;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper .airline-dashed {
+  width: 80px;
+  height: 2px;
+  background-color: #dadfe6;
+  position: relative;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper .airline-dashed::before,
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper .airline-dashed::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: -1px;
+  background-color: #dadfe6;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper .airline-dashed::before {
+  left: 0;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper .airline-dashed::after {
+  right: 0;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .airplane-icon-wrapper img {
+  height: 32px;
+  width: 32px;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .passangerInfo {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .flightdetail-wrapper .passangerInfo path {
+  fill: #06aebd !important;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .flightinfo-wrapper {
+  max-height: 50vh;
+  overflow: auto;
+}
+.app-crx-show-flight-price-compare .flightinfo-wrapper .compare-tag {
+  font-size: 14px;
+  color: #455873;
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .flightinfo-wrapper .compare-tag span {
+  color: #F94C86;
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .flightinfo-wrapper .compare-tag.higher span {
+  color: #06aebd;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .compare-wrapper {
+  margin: 0 16px 8px;
+}
+.app-crx-show-flight-price-compare .compare-wrapper .book-btn {
+  background: #3264ff;
+  border-radius: 2px;
+  height: 38px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.app-crx-show-flight-price-compare .compare-wrapper .book-btn:hover {
+  background-color: #2D5AE5;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.m-chromePluginV2__content-leftimg {
+  width: 66px;
+  height: 16px;
+  background-size: cover;
+}
+.m-chromePluginV2__content-leftimg-wrapper {
+  width: 66px;
+  height: 16px;
+}
+.m-chromePluginV2__price-item {
+  justify-content: flex-end;
+  flex: 1;
+  text-align: center;
+}
+.m-chromePluginV2__price-text {
+  word-break: break-all;
+  width: 100%;
+}
+.m-chromePluginV2__price-otherbar,
+.m-chromePluginV2__price-tripbar,
+.m-chromePluginV2__price-tripbar-loading {
+  width: 32px;
+  border-radius: 4px 4px 0 0;
+}
+.m-chromePluginV2__price-otherbar {
+  height: 60px;
+  background: rgba(50, 100, 255, 0.32);
+}
+.m-chromePluginV2__price-tripbar {
+  height: 40px;
+  background: #3264ff;
+}
+.m-chromePluginV2__price-tripbar-loading {
+  height: 60px;
+  background: #3264ff;
+}
+.app-crx-show-flight-price-compare .loading-wrapper .loading-text {
+  padding: 0 16px 16px;
+}
+.app-crx-show-flight-price-compare .loading-wrapper .header-icon {
+  width: 16px;
+  height: 16px;
+}
+.app-crx-show-flight-price-compare .loading-wrapper .header-icon path {
+  fill: #3264FF !important;
+}
+.app-crx-show-flight-price-compare .loading-wrapper .loading-loadgif {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.app-crx-show-flight-price-compare .noflight-wrapper .noflight-text {
+  margin-top: 4px;
+  overflow: hidden;
+  color: #455873;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  line-height: 18px;
+  width: 288px;
+  margin: 0 16px 16px 16px;
+}
+.app-crx-show-flight-price-compare .flex {
+  display: flex;
+}
+.app-crx-show-flight-price-compare .color-tertiaryBlack {
+  color: #8592a6;
+}
+.app-crx-show-flight-price-compare .color-brandBlue {
+  color: #3264ff;
+}
+.app-crx-show-flight-price-compare .f-bold {
+  font-weight: bold;
+}
+.app-crx-show-flight-price-compare .mt-4 {
+  margin-top: 4px;
+}
+.app-crx-show-flight-price-compare .mb-4 {
+  margin-bottom: 4px;
+}
+.app-crx-show-flight-price-compare .f-12 {
+  font-size: 12px;
+}
+.app-crx-show-flight-price-compare .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #dadfe6;
+  transform: scaleY(0.5);
+}
+.app-crx-show-flight-price-compare .mh-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .mh-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.app-crx-show-flight-price-compare .mt-8 {
+  margin-top: 8px;
+}
+.app-crx-show-flight-price-compare .mt-16 {
+  margin-top: 16px;
+}
+.app-crx-show-flight-price-compare .mb-8 {
+  margin-bottom: 8px;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper {
+  color: #fff;
+  background: #3264ff;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .header-wrapper {
+  color: #fff;
+  background: #3264ff;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .header-wrapper .header-icon .img {
+  display: none;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .header-wrapper .header-text {
+  color: #fff;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .header-wrapper .header-close span {
+  color: #fff;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .content-1 {
+  margin: 16px 16px 8px 16px;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .content-2 {
+  margin: 0 16px 8px 16px;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .content-2 span {
+  text-decoration: underline;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .trip-com-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 24px 16px 24px;
+}
+.app-crx-show-flight-price-compare .welcome-inject-wrapper .trip-com-wrapper .trip-com-logo {
+  height: 18px;
+  width: 73px;
+}
+</style><div id="save-fly-plugin-inject-element"></div><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script id="lpData">
+var lpData = {"site_url":"https:\/\/pandarin.net","user_id":"0","theme":"pandarin-new","lp_rest_url":"https:\/\/pandarin.net\/wp-json\/","nonce":"af5032cb3a","is_course_archive":"","courses_url":"https:\/\/pandarin.net\/ebook\/","urlParams":[],"lp_version":"4.2.9","lp_rest_load_ajax":"https:\/\/pandarin.net\/wp-json\/lp\/v1\/load_content_via_ajax\/","ajaxUrl":"https:\/\/pandarin.net\/wp-admin\/admin-ajax.php","lpAjaxUrl":"https:\/\/pandarin.net\/lp-ajax-handle","coverImageRatio":"5.16","toast":{"gravity":"bottom","position":"center","duration":3000,"close":1,"stopOnFocus":1,"classPrefix":"lp-toast"},"i18n":[]};
+</script>
+<script id="lpSettingCourses">
+var lpSettingCourses = {"lpArchiveLoadAjax":"1","lpArchiveNoLoadAjaxFirst":"0","lpArchivePaginationType":"number","noLoadCoursesJs":"0"};
+</script>
+		<style id="learn-press-custom-css">
+			:root {
+				--lp-container-max-width: 1360px;
+				--lp-cotainer-padding: 1rem;
+				--lp-primary-color: #6cb7f0;
+				--lp-secondary-color: #333333;
+			}
+		</style>
+		<style id="jetpack-boost-critical-css" media="not all">@media all{.wp-block-button__link{background-color:#32373c;border-radius:9999px;box-shadow:none;color:#fff;font-size:1.125em;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}}@media all{:root{--dark:#333333;--darkRGB:51,51,51;--darkFilter:invert(12%) sepia(0%) saturate(868%) hue-rotate(158deg) brightness(107%) contrast(80%);--gray:#B8B8B8;--grayFilter:invert(78%) sepia(1%) saturate(0%) hue-rotate(144deg) brightness(99%) contrast(83%);--light:#e5e1d2;--white:#ffffff;--whiteFilter:invert(100%) sepia(100%) saturate(2%) hue-rotate(34deg) brightness(108%) contrast(101%);--blue:#6cb7f0;--blueFilter:invert(68%) sepia(18%) saturate(1215%) hue-rotate(168deg) brightness(97%) contrast(94%);--blue-light:#b2e4fb;--red:#e47272;--redFilter:invert(59%) sepia(22%) saturate(4698%) hue-rotate(319deg) brightness(105%) contrast(79%);--red-light:#ffccd1;--red-lightFilter:invert(82%) sepia(21%) saturate(409%) hue-rotate(307deg) brightness(97%) contrast(109%);--green:#85c589;--greenFilter:invert(83%) sepia(38%) saturate(394%) hue-rotate(68deg) brightness(85%) contrast(83%);--yellow:#ffd984;--yellowFilter:invert(86%) sepia(55%) saturate(594%) hue-rotate(313deg) brightness(106%) contrast(108%);--text:var(--dark);--textRGB:var(--darkRGB);--textInvert:var(--white);--textInvertFilter:var(--whiteFilter);--color1:var(--blue);--color1Light:var(--blue-light);--siteBg:#ffffff}[class*=-background-color]{background-color:var(--bgColor)}.has-text-color{color:var(--textColor,var(--text))}.has-dark-background-color{--bgColor:var(--dark)}.has-dark-color{--textColor:var(--dark);--filterColor:var(--darkFilter)}.has-gray-color{--textColor:var(--gray);--filterColor:var(--grayFilter)}.has-light-background-color{--bgColor:var(--light)}.has-white-color{--textColor:var(--white);--filterColor:var(--whiteFilter)}.has-blue-color{--textColor:var(--blue);--filterColor:var(--blueFilter)}.has-red-light-color{--textColor:var(--red-light);--filterColor:var(--red-lightFilter)}.has-green-color{--textColor:var(--green);--filterColor:var(--greenFilter)}[class*=-background-color]{background-color:var(--bgColor)}.has-text-color{color:var(--textColor,var(--text))}main{letter-spacing:calc(.01*var(--fontSize));overflow-wrap:break-word}main>:first-child:not(.alignfull){padding-top:var(--blockSpacing)}main>:last-child:not(.alignfull){margin-bottom:var(--groupSpacing)}main h1,main h2,main h3{clear:both;color:var(--textColor)}main ul{padding-left:1.25rem}main img{border-radius:var(--gRadius)}main a{text-decoration:underline}.wp-block-group>*,main>*{margin:0 auto;max-width:var(--blogWidth)}@media (max-width:1120px){.wp-block-group.alignfull,body:not(.single-post) main{padding-right:var(--gridRim);padding-left:var(--gridRim)}}.wp-block-column>*+*,.wp-block-group>*+*,main>*+*{margin-top:var(--blockSpacing)}.has-text-align-left{text-align:left}.aligncenter,.has-text-align-center{text-align:center}.alignwide{max-width:var(--siteWidth)}@media (max-width:1120px){.alignwide{max-width:100%}}.alignfull{max-width:none;margin-top:var(--groupSpacing)}@media (max-width:1120px){.alignfull{margin-right:calc(-1*var(--gridRim));margin-left:calc(-1*var(--gridRim))}}.alignfull:first-child{margin-top:0}.alignfull+*{margin-top:var(--groupSpacing)}.alignfull+.alignfull{margin-top:0}.alignfull:last-child{margin-bottom:0}.is-vertically-aligned-center{align-items:center;align-self:center}.is-content-justification-center{--flexAlign:center}[class*=is-content-justification-]{justify-content:var(--flexAlign)}.has-small-font-size{font-size:var(--sFontSize)}.has-medium-font-size{font-size:var(--mFontSize)}h2.has-background,h3.has-background{padding:1rem;border-radius:var(--gRadius)}@media (max-width:782px){h2.has-background,h3.has-background{padding:.5rem 1rem}}.wp-block-buttons{--gap:1rem;--bgColor:var(--color1);--textColor:var(--textInvert);display:flex;align-items:center;flex-wrap:wrap;column-gap:var(--gap);row-gap:var(--gap)}.wp-block-button.is-style-outline{--textColor:currentColor}.wp-block-button__link{display:inline-flex;align-items:center;overflow:hidden;padding:.5em 1.25em;background-color:var(--bgColor,var(--color1));border:1px solid rgbA(0,0,0,.2);border-radius:2rem;text-decoration:none;text-align:center;font-weight:var(--hFontWeight);font-size:var(--sFontSize);letter-spacing:.05em;color:var(--textColor,var(--textInvert));vertical-align:top;line-height:1;will-change:transform,opacity}.wp-block-button__link{display:flex}.is-style-outline .wp-block-button__link{border:2px solid;background-color:rgba(0,0,0,0);color:var(--textColor)}.wp-block-columns{display:flex;row-gap:var(--blockGap);column-gap:var(--blockGap)}@media (max-width:782px){.wp-block-columns{flex-wrap:wrap}}.wp-block-column{flex-basis:0;flex-grow:1;min-width:0}.wp-block-column[style*=flex-basis]{flex-grow:0}.wp-block-column.has-background{padding:var(--blockGap);border-radius:var(--gRadius)}@media (max-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column{flex-basis:100%!important;width:100%}}.wp-block-group:not(.has-background){margin-top:var(--space3);margin-bottom:var(--space3)}.wp-block-group.has-background.alignfull{padding-top:var(--space3);padding-bottom:var(--space3);border-radius:0}.wp-block-group:first-child{margin-top:0}.wp-block-group:last-child{margin-bottom:0}.wp-block-group.alignfull[style*=padding-right]{padding-right:var(--gridRim)!important}.wp-block-group[class*=px-has-columns-]{display:grid;grid-template-columns:repeat(var(--columns,2),1fr);row-gap:var(--blockGap)}.wp-block-group[class*=px-has-columns-]>*{width:100%}.wp-block-group.px-has-columns-2{--columns:2}@media (max-width:782px){.wp-block-group.px-has-columns-2{--columns:1}}.wp-block-group.px-has-columns-3{--columns:3}@media (max-width:782px){.wp-block-group.px-has-columns-3{--columns:1}}.wp-block-spacer{margin-top:0;margin-bottom:0}.wp-block-separator{display:block;border-top:2px solid var(--bgColor,var(--gray));margin:var(--space4) auto;padding:0;width:120px;line-height:1;clear:both}.wp-block-separator.is-style-wide{width:clamp(120px,var(--wideSize),100%)}@media (max-width:782px){.wp-block-column .wp-block-image{text-align:center}}.wp-block-h-icon{--iconSize:60px;--iconPadding:1rem;--iconGap:1rem;--iconBg:var(--bgColor,rgba(0,0,0,.1));--textColor:inherit;display:flex;align-items:flex-start;border-radius:var(--gRadius)}.wp-block-h-icon.has-no-description{align-items:center}@media (max-width:960px){.wp-block-h-icon{--iconGap:0.75rem}}.wp-block-h-icon__figure{display:flex;align-items:center;justify-content:center;min-width:var(--iconSize);max-width:var(--iconSize);width:var(--iconSize);height:var(--iconSize);margin:0;padding:var(--iconPadding);background-color:var(--iconBg);border-radius:50%}.has-icon-position-left .wp-block-h-icon__figure{margin-right:var(--iconGap)}.wp-block-h-icon__figure path{fill:var(--iconColor,currentColor)}.wp-block-h-icon__figure svg{max-width:100%;max-height:100%}.wp-block-h-icon__content{flex:1;width:100%;color:var(--textColor)}.wp-block-h-icon__content dt{font-family:var(--hFontFamily);font-weight:700;font-size:var(--h4Size);line-height:var(--hLineHeight)}.wp-block-h-icon__content dd{margin-top:.75rem}.wp-block-h-icon.is-style-mini{--iconSize:1.125rem;--iconPadding:0;--iconGap:0.5rem}.wp-block-h-icon.is-style-mini .wp-block-h-icon__figure{background-color:rgba(0,0,0,0)}.wp-block-h-icon.is-style-mini dt{font-size:1rem;font-family:var(--fontFamily);font-weight:var(--fontWeight);line-height:var(--lineHeight);letter-spacing:0}.wp-block-h-faq{--faqTitleBg:#e5e5e5;--faqTitleColor:var(--text,#191e23);border:2px solid var(--faqTitleBg);border-radius:4px}.h-faq-question{position:relative;padding:.75rem 1rem .75rem 2rem;margin:-1px;background-color:var(--faqTitleBg);color:var(--faqTitleColor);line-height:1.25}.h-faq-question::before{content:"+";position:absolute;left:.75rem;display:inline-block;margin-right:.75rem;font-family:var(--codeFontFamily)}.h-faq-answer{padding:1rem 1.5rem}.h-faq-answer p+p{margin-top:1rem}main img{border-radius:4px}.wp-block-column.has-background{overflow:hidden}.wp-block-column h2.has-background:first-child,.wp-block-column h3.has-background:first-child{margin:calc(-1*var(--blockGap));margin-bottom:0;border-radius:0}.wp-block-column h2+*,.wp-block-column h3+*{margin-top:1rem}.is-style-my-inline-check{display:flex;flex-wrap:wrap;column-gap:1.25rem;row-gap:.5rem;list-style-type:none;padding:0}.is-style-my-inline-check li{display:flex;align-items:center}.is-style-my-inline-check li::before{content:"";display:inline-block;width:1em;height:1em;margin-right:.25rem;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDQ4YTIwOCAyMDggMCAxIDEgMCA0MTYgMjA4IDIwOCAwIDEgMSAwLTQxNnptMCA0NjRBMjU2IDI1NiAwIDEgMCAyNTYgMGEyNTYgMjU2IDAgMSAwIDAgNTEyek0zNjkgMjA5YzkuNC05LjQgOS40LTI0LjYgMC0zMy45cy0yNC42LTkuNC0zMy45IDBsLTExMSAxMTEtNDctNDdjLTkuNC05LjQtMjQuNi05LjQtMzMuOSAwcy05LjQgMjQuNiAwIDMzLjlsNjQgNjRjOS40IDkuNCAyNC42IDkuNCAzMy45IDBMMzY5IDIwOXoiLz48L3N2Zz4=) no-repeat center center;filter:var(--filterColor)}@media (min-width:783px){.wp-block-spacer.is-style-hide-desktop{display:none}}}@media all{:root{--shadow1:0 1.5px 4px rgba(0,0,0,.24),0 1.5px 6px rgba(0,0,0,.12);--fontFamily:"Fredoka",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--fontWeight:400;--lineHeight:1.65;--letterSpacing:0;--xsFontSize:0.75rem;--sFontSize:0.875rem;--fontSize:16px;--mFontSize:1.125rem;--lFontSize:1.5rem;--hFontFamily:var(--fontFamily);--hFontFamily2:var(--fontFamily);--hFontStyle:normal;--hFontWeight:500;--hLineHeight:1.25;--hLetterSpacing:0.01rem;--hTextTransform:initial;--hColor:inherit;--h1Size:3.75rem;--h2Size:2rem;--h3Size:1.75rem;--h4Size:1.5rem;--codeFontFamily:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;--linkColor:inherit;--contentSize:650px;--wideSize:1120px;--blogWidth:var(--contentSize);--siteWidth:var(--wideSize);--gridGap:1.25rem;--gridRim:1rem;--tileGap:20px;--gRadius:0.75rem;--adminBarHeight:0px;--blockSpacing:1.5rem;--groupSpacing:2.5rem;--blockGap:var(--blockSpacing);--space-1:clamp(0.75rem,calc(0.72rem + 0.13vw),0.81rem);--space0:clamp(1.00rem,calc(0.97rem + 0.13vw),1.06rem);--space2:clamp(1.50rem,calc(1.44rem + 0.26vw),1.63rem);--space3:clamp(2.00rem,calc(1.94rem + 0.26vw),2.13rem);--space4:clamp(2.50rem,calc(2.41rem + 0.39vw),2.69rem)}@media (max-width:960px){:root{--h1Size:3.25rem}}@media (max-width:782px){:root{--h1Size:2.25rem;--groupSpacing:2.5rem}}main.the-content{--xsFontSize:0.8125rem;--sFontSize:0.9375rem;--fontSize:18px;--mFontSize:1.25rem;--lFontSize:1.5rem;font-size:var(--fontSize)}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{line-height:1.15;font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,body{margin:0;padding:0}aside,details,figure,footer,header,main,nav,picture,section,summary{display:block}a{text-decoration:none;background-color:rgba(0,0,0,0)}b,strong{font-weight:700}h1,h2,h3{margin:0}address{font-style:normal}img{border-style:none;display:inline-block;vertical-align:middle;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}img{max-width:100%;height:auto}hr{-moz-box-sizing:content-box;box-sizing:content-box;display:block;overflow:visible;height:1px;margin:1em 0;padding:0;border:0;border-top:1px solid #ccc}@media (max-width:782px){html[lang]{margin-top:0!important}}html{font-size:var(--fontSize)}body{position:relative;overflow-x:hidden;background:var(--siteBg);margin:0;font-family:var(--fontFamily);font-weight:var(--fontWeight);font-size:var(--fontSize);line-height:var(--lineHeight);letter-spacing:var(--letterSpacing);color:var(--text)}h1,h2,h3{font-family:var(--hFontFamily);font-weight:var(--hFontWeight);font-size:var(--hFontSize);font-style:var(--hFontStyle);line-height:var(--hLineHeight);letter-spacing:var(--hLetterSpacing);text-transform:var(--hTextTransform);color:var(--hColor)}h1{font-size:var(--h1Size)}h2{font-size:var(--h2Size)}h3{font-size:var(--h3Size)}p{margin-top:0;margin-bottom:0}a{color:var(--linkColor)}ul{list-style-type:disc}ul ul{list-style-type:circle}[data-grid]{display:-ms-grid;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-column-gap:var(--gridGap);grid-row-gap:var(--gridGap);max-width:calc(var(--siteWidth) + var(--gridRim)*2);padding:0 var(--gridRim);margin:0 auto;width:100%}[data-column]{--span:12;grid-column:span var(--span)}[data-column^="4"]{--span:4}[data-column^="6"]{--span:6}[data-column^="8"]{--span:8}@media (max-width:782px){[data-column]{--span:12}}[data-tile]{--columns:3;display:-ms-grid;display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));grid-column-gap:var(--tileGap);grid-row-gap:var(--tileGap);list-style-type:none}[data-tile]>*{grid-column:span 1}[data-tile^="4"]{--columns:4}@media (max-width:782px){[data-tile]{--columns:1}[data-tile$="-2"]{--columns:2}}h1{margin:0 0 20px 0}@media only screen and (max-width:785px){html[lang]{margin-top:0!important}}.menu-decor{position:sticky;z-index:1000;top:0;left:0;width:100%;height:5px}@media only screen and (max-width:782px){.menu-decor{height:5px}}.menu-decor div{float:left;width:25%;height:100%}.menu-decor div:first-child{background-color:#fd8b83}.menu-decor div:nth-child(2){background-color:#fed45b}.menu-decor div:nth-child(3){background-color:#83c687}.menu-decor div:nth-child(4){background-color:#68b6f3}.menu-logo{float:left;height:100%}@media only screen and (max-width:782px){.menu-logo{height:100%}}.menu-logo a{padding:9px 12px;height:100%}@media only screen and (max-width:782px){.menu-logo a{padding:8px 12px}}@media only screen and (max-width:480px){.menu-logo a{padding:4px}}.menu-logo img{height:100%;width:auto}.custom-logo-link{display:block;position:relative}.custom-logo-link img{width:180px;height:auto}@media only screen and (max-width:480px){.custom-logo-link{display:none}}.mobile-logo{display:inline-block}@media (min-width:481px){.mobile-logo{display:none}}.nav-wrapper{float:left;height:100%}.nav-wrapper::after,.nav-wrapper::before{content:" ";display:table}.nav-wrapper::after{clear:both}@media (max-width:960px){.nav-wrapper{display:none!important}}@media (max-width:480px){.nav-wrapper{width:50vw}}.menu-item{position:relative;float:left;height:100%}@media (max-width:960px){.menu-item{position:static;float:none;height:auto}}.menu-item>a{display:inline-block;padding:0 5px;height:100%;font-family:var(--hFontFamily2);font-weight:700;color:inherit}@media only screen and (min-width:961px) and (max-width:960px){.menu-item>a{padding:0}}@media (max-width:960px){.menu-item>a{width:100%;padding:0 .5rem;font-weight:400;color:var(--gray-light)}}body,html{height:100%}#main-wrapper{min-height:100%;height:auto!important;height:100%;margin:0 auto -135px}#footer-push,.main-footer{margin:0 auto;height:135px}.main-footer{height:auto}.main-footer{background-color:#333;padding:40px 0;color:#fff;line-height:1.8}@media only screen and (max-width:782px){.main-footer{padding:20px 0;text-align:center}}.main-footer a{color:inherit}.logo-footer{width:230px;margin-bottom:1em}@media only screen and (max-width:782px){.logo-footer{display:block;margin:0 auto 1em}}.footer-social{text-align:right}@media only screen and (max-width:782px){.footer-social{text-align:center;margin-bottom:1em}}.footer-social .social-logo{display:inline-flex;align-items:center;justify-content:center;margin-right:10px;width:40px;height:40px;color:#fff;font-size:1.5rem;line-height:1;background-color:var(--color,var(--text));border-radius:50%}.footer-social path{fill:#fff}@media only screen and (max-width:782px){.footer-nav li{margin-top:1em}}.footer-nav b{display:block;color:#ff8a80;font-weight:var(--hFontWeight)}.footer-nav li:nth-child(2n) b{color:#ffd54f}.footer-nav li:nth-child(3n) b{color:#81c784}.footer-nav li:nth-child(4n) b{color:#64b5f6}html[lang]{overflow:visible}.the-content>.learnpress{max-width:var(--wideSize)}.main-header{position:sticky;top:var(--adminBarHeight);z-index:10000;background-color:var(--text)}@media (max-width:1120px){.main-header{padding-right:var(--gridRim);padding-left:var(--gridRim)}}@media (max-width:960px){.main-header{top:calc(var(--adminBarHeight) + 5px)}}.main-header__inner{display:flex;align-items:stretch;max-width:var(--wideSize);margin-right:auto;margin-left:auto}.menu-logo{padding:.5rem 0}@media (min-width:783px){.menu-logo{margin-right:2rem}}@media (max-width:782px){.menu-logo{width:10rem}}.nav-wrapper{display:flex;height:auto}.header-menu{display:flex;flex-wrap:wrap;list-style-type:none}.header-menu .menu-item{position:relative}.header-menu .menu-item>a{position:relative;display:flex;align-items:center;padding:1rem .75rem;height:100%;line-height:1;font-weight:var(--hFontWeight);font-size:var(--mFontSize);letter-spacing:.05em;color:var(--textInvert)}.header-menu .menu-item>a::before{content:"";display:block;visibility:hidden;opacity:0;position:absolute;bottom:0;left:10px;right:10px;height:3px;background-color:var(--text)}.header-menu .current-menu-item>a::before{visibility:visible;opacity:1}.header-menu .menu-item-has-children>a::after{content:"";display:inline-block;margin-left:.25rem;width:.5rem;height:.5rem;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBkPSJNMTM3LjQgMzc0LjZjMTIuNSAxMi41IDMyLjggMTIuNSA0NS4zIDBsMTI4LTEyOGM5LjItOS4yIDExLjktMjIuOSA2LjktMzQuOXMtMTYuNi0xOS44LTI5LjYtMTkuOEwzMiAxOTJjLTEyLjkgMC0yNC42IDcuOC0yOS42IDE5LjhzLTIuMiAyNS43IDYuOSAzNC45bDEyOCAxMjh6Ii8+PC9zdmc+) no-repeat center center;background-size:100%auto;opacity:.75;filter:var(--textInvertFilter)}.header-menu .submenu{visibility:hidden;opacity:0;background-color:var(--textInvert);width:260px;padding:.5rem;border-radius:var(--gRadius);list-style-type:none;box-shadow:var(--shadow1)}.header-menu .submenu-depth-1{position:absolute;z-index:10;top:100%;left:50%;transform:translateX(-50%)}.header-menu .submenu-item{position:relative}.header-menu .submenu-item>a{display:flex;flex-direction:column;padding:.375rem .75rem;border-radius:var(--gRadius);font-weight:var(--hFontWeight)}.toggle-offcanvas{--_color:var(--text);display:flex;align-items:center;padding:.5rem .5rem;color:var(--_color);border-radius:var(--gRadius)}@media (min-width:961px){.toggle-offcanvas{display:none}}.offcanvas .toggle-offcanvas{--_color:var(--textInvert);position:absolute;z-index:2;top:5px;left:0}.toggle-offcanvas::after{content:"";display:inline-block;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNNDI0IDM5MkgyNEMxMC44IDM5MiAwIDQwMi44IDAgNDE2VjQxNkMwIDQyOS4yIDEwLjggNDQwIDI0IDQ0MEg0MjRDNDM3LjIgNDQwIDQ0OCA0MjkuMiA0NDggNDE2VjQxNkM0NDggNDAyLjggNDM3LjIgMzkyIDQyNCAzOTJaTTQyNCA3MkgyNEMxMC44IDcyIDAgODIuOCAwIDk2Vjk2QzAgMTA5LjIgMTAuOCAxMjAgMjQgMTIwSDQyNEM0MzcuMiAxMjAgNDQ4IDEwOS4yIDQ0OCA5NlY5NkM0NDggODIuOCA0MzcuMiA3MiA0MjQgNzJaTTQyNCAyMzJIMjRDMTAuOCAyMzIgMCAyNDIuOCAwIDI1NlYyNTZDMCAyNjkuMiAxMC44IDI4MCAyNCAyODBINDI0QzQzNy4yIDI4MCA0NDggMjY5LjIgNDQ4IDI1NlYyNTZDNDQ4IDI0Mi44IDQzNy4yIDIzMiA0MjQgMjMyWiIvPjwvc3ZnPg==) no-repeat center center;background-size:contain;width:1.25rem;height:1.25rem;filter:var(--whiteFilter)}.offcanvas .toggle-offcanvas::after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBkPSJNMzEyLjk3MyAzNzUuMDMyQzMyMi4zNDIgMzg0LjQwMSAzMjIuMzQyIDM5OS42MDQgMzEyLjk3MyA0MDguOTczUzI4OC40MDEgNDE4LjM0MiAyNzkuMDMyIDQwOC45NzNMMTYwIDI4OS45NDFMNDAuOTY4IDQwOC45NzNDMzEuNTk5IDQxOC4zNDIgMTYuMzk2IDQxOC4zNDIgNy4wMjcgNDA4Ljk3M1MtMi4zNDIgMzg0LjQwMSA3LjAyNyAzNzUuMDMyTDEyNi4wNTkgMjU2TDcuMDI3IDEzNi45NjhDLTIuMzQyIDEyNy41OTkgLTIuMzQyIDExMi4zOTYgNy4wMjcgMTAzLjAyN1MzMS41OTkgOTMuNjU4IDQwLjk2OCAxMDMuMDI3TDE2MCAyMjIuMDU5TDI3OS4wMzIgMTAzLjAyN0MyODguNDAxIDkzLjY1OCAzMDMuNjA0IDkzLjY1OCAzMTIuOTczIDEwMy4wMjdTMzIyLjM0MiAxMjcuNTk5IDMxMi45NzMgMTM2Ljk2OEwxOTMuOTQxIDI1NkwzMTIuOTczIDM3NS4wMzJaIi8+PC9zdmc+);width:2rem;height:2rem;filter:var(--whiteFilter)}.toggle-offcanvas span{margin-right:.25rem;line-height:1;text-transform:uppercase;font-weight:700;font-size:var(--sFontSize);letter-spacing:.05em}@media (max-width:480px){.toggle-offcanvas span{display:none}}.header-buttons{display:flex;align-items:center;column-gap:.5rem;margin-left:auto}@media (max-width:480px){.header-buttons{column-gap:.25rem}}.header-buttons a{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:50%}.header-buttons a::before{content:"";display:inline-block;width:1.5rem;height:1.5rem;background:var(--_icon) no-repeat center center;background-size:contain;filter:var(--whiteFilter)}.header-menu .has-columns-3{--_width:calc(var(--wideSize)*3/4);--_columns:3;position:static}@media (max-width:1120px){.header-menu .has-columns-3{--_width:75vw}}.header-menu [class*=has-columns-] .submenu{display:flex;align-items:flex-start;flex-wrap:wrap;flex-grow:1;width:var(--_width);padding:var(--space-1);border-radius:0}.header-menu [class*=has-columns-] .submenu a{padding:.375rem .75rem}.header-menu [class*=has-columns-] .submenu li{width:calc(100%/var(--_columns))}.header-menu .mega-menu{display:flex;flex-wrap:wrap;overflow:hidden;visibility:hidden;opacity:0;background-color:var(--textInvert);position:absolute;z-index:10;top:100%;left:50%;transform:translateX(-50%);padding:0 .5rem;width:var(--_width);max-height:calc(100vh - var(--headingHeight,80px));border-radius:var(--gRadius);box-shadow:var(--shadow1);list-style-type:none}.header-menu .mega-menu ul{list-style-type:none}.header-menu .mega-menu__column{flex-grow:1;width:calc(100%/var(--_columns,2));padding:.75rem 0;border-radius:0}.header-menu .mega-menu__column>a{opacity:.75;padding-left:.75rem;letter-spacing:.05em;text-transform:uppercase;font-weight:700;font-size:var(--xsFontSize)}.offcanvas .mega-menu{display:flex;flex-direction:column;row-gap:.5rem;list-style-type:none;background-color:var(--textDark);max-height:100vh}.offcanvas .menu-item:not(.is-open) .mega-menu{visibility:hidden;opacity:0;max-height:0}.offcanvas .mega-menu__column{width:100%}.offcanvas .mega-menu__column>a{display:block;opacity:.75;padding:.5rem;letter-spacing:.05em;text-transform:uppercase;text-align:center;font-weight:700;font-size:var(--xsFontSize)}.offcanvas .mega-menu ul{display:flex;flex-wrap:wrap}.offcanvas .mega-menu .submenu-item{width:50%;display:flex;flex-direction:column;justify-content:center}.offcanvas{position:fixed;z-index:10001;top:0;bottom:0;right:0;left:0;visibility:hidden;opacity:0;background-color:rgbA(var(--textRGB),.75);backdrop-filter:blur(10px);width:100%}.offcanvas__inner{position:absolute;top:0;right:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;visibility:hidden;opacity:0;transform:translateY(1rem);max-height:100vh;height:100%;width:100%;padding:3rem 2rem;list-style-type:none;color:var(--textInvert);-webkit-overflow-scrolling:touch}.offcanvas-menu{display:flex;flex-direction:column;flex-wrap:wrap;align-items:center;list-style-type:none;margin:0 calc(-1*var(--space2))}.offcanvas-menu a{display:flex;align-items:center;position:relative;line-height:1;color:inherit}.offcanvas-menu .menu-item{display:flex;flex-direction:column;width:100%}.offcanvas-menu .menu-item>a{display:flex;justify-content:center;padding:var(--space0) var(--space2);font-size:var(--lFontSize);font-weight:var(--hFontWeight);letter-spacing:.025em}.offcanvas-menu .menu-item-has-children>a{position:relative}.offcanvas-menu .menu-item-has-children>a::after{content:"";display:inline-block;opacity:.75;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMjA3LjAyOSAzODEuNDc2TDEyLjY4NiAxODcuMTMyYy05LjM3My05LjM3My05LjM3My0yNC41NjkgMC0zMy45NDFsMjIuNjY3LTIyLjY2N2M5LjM1Ny05LjM1NyAyNC41MjItOS4zNzUgMzMuOTAxLS4wNEwyMjQgMjg0LjUwNWwxNTQuNzQ1LTE1NC4wMjFjOS4zNzktOS4zMzUgMjQuNTQ0LTkuMzE3IDMzLjkwMS4wNGwyMi42NjcgMjIuNjY3YzkuMzczIDkuMzczIDkuMzczIDI0LjU2OSAwIDMzLjk0MUwyNDAuOTcxIDM4MS40NzZjLTkuMzczIDkuMzcyLTI0LjU2OSA5LjM3Mi0zMy45NDIgMHoiLz48L3N2Zz4=) no-repeat center center;background-size:100%auto;filter:var(--_filter,invert(1));width:.75rem;height:.75rem;margin-left:.5rem}.offcanvas-menu .submenu{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;background-color:var(--textDark);max-height:100vh;list-style-type:none}.offcanvas-menu .menu-item:not(.is-open) .submenu{visibility:hidden;opacity:0;max-height:0}.offcanvas-menu .submenu-item{display:flex;flex-direction:column;align-items:center;width:100%}.offcanvas-menu .submenu-item>a{flex-direction:column;opacity:.75;padding:.5rem;font-size:var(--mFontSize);line-height:1.5;text-align:center}.offcanvas-menu [class*=has-columns] .submenu li{width:50%}.offcanvas-menu .menu-item>a{color:var(--_color,var(--white))}.offcanvas-menu .menu-item:first-child,.offcanvas-menu .menu-item:nth-child(6){--_color:var(--red);--_filter:var(--redFilter)}.offcanvas-menu .menu-item:nth-child(2),.offcanvas-menu .menu-item:nth-child(7){--_color:var(--yellow);--_filter:var(--yellowFilter)}.offcanvas-menu .menu-item:nth-child(3){--_color:var(--green);--_filter:var(--greenFilter)}.offcanvas-menu .menu-item:nth-child(4){--_color:var(--blue);--_filter:var(--blueFilter)}.offcanvas-menu .menu-item:nth-child(5){--_color:var(--white);--_filter:var(--whiteFilter)}}@media all{.h-cart.is-style-offcanvas::before{content:""}.h-widget-button{display:flex;align-items:center;position:relative;border-bottom-width:2px;border-radius:1rem;color:var(--text);font-family:var(--fontFamily);font-size:var(--fontSize);font-weight:var(--fontWeight);text-align:center;letter-spacing:0}@media (max-width:960px){.h-widget-button{font-size:var(--sFontSize)}}.h-widget-button.is-cart-button{--_icon:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNNDE2IDE2MEgzNDRWMTIwQzM0NCA1My44MjggMjkwLjE3MiAwIDIyNCAwUzEwNCA1My44MjggMTA0IDEyMFYxNjBIMzJDMTQuMzI2IDE2MCAwIDE3NC4zMjYgMCAxOTJWNDMyQzAgNDc2LjE4MiAzNS44MTggNTEyIDgwIDUxMkgzNjhDNDEyLjE4NCA1MTIgNDQ4IDQ3Ni4xODIgNDQ4IDQzMlYxOTJDNDQ4IDE3NC4zMjYgNDMzLjY3NCAxNjAgNDE2IDE2MFpNMTUyIDEyMEMxNTIgODAuMjk3IDE4NC4yOTcgNDggMjI0IDQ4UzI5NiA4MC4yOTcgMjk2IDEyMFYxNjBIMTUyVjEyMFpNNDAwIDQzMkM0MDAgNDQ5LjY0NSAzODUuNjQ1IDQ2NCAzNjggNDY0SDgwQzYyLjM1NSA0NjQgNDggNDQ5LjY0NSA0OCA0MzJWMjA4SDEwNFYyNjRDMTA0IDI3Ny4yNSAxMTQuNzUgMjg4IDEyOCAyODhTMTUyIDI3Ny4yNSAxNTIgMjY0VjIwOEgyOTZWMjY0QzI5NiAyNzcuMjUgMzA2Ljc1IDI4OCAzMjAgMjg4UzM0NCAyNzcuMjUgMzQ0IDI2NFYyMDhINDAwVjQzMloiLz48L3N2Zz4=)}.h-widget-button.is-cart-button svg{display:none}.h-widget-button.is-cart-button span{display:none}.h-widget-button *+*{margin-left:.25rem}.h-widget-button svg{width:1rem;height:1rem}.h-widget-button path{fill:currentColor}.h-widget-button span{display:inline-block}@media (max-width:480px){.h-widget-button span{display:none}}.widget_shopping_cart{display:flex;flex-direction:column;visibility:hidden;opacity:0;will-change:opacity,transform;position:absolute;z-index:10;top:calc(100% + .5rem);right:0;transform:translateX(1rem);background-color:var(--textInvert);width:320px;box-shadow:var(--shadow1);border-radius:var(--gRadius)}@media (max-width:480px){.widget_shopping_cart{padding:.75rem;width:calc(100vw - var(--gridRim) - var(--gridRim))}}.is-style-offcanvas .widget_shopping_cart{position:fixed;z-index:110;top:0;right:0;bottom:0;width:380px;padding:0;border-radius:0}@media (max-width:480px){.is-style-offcanvas .widget_shopping_cart{width:100%}}.widget_shopping_cart .widgettitle{display:none}.is-style-offcanvas .widget_shopping_cart .widgettitle{display:block;position:relative;padding:.75rem 1rem;margin-top:var(--adminBarHeight);background-color:var(--color1Light);font-size:var(--h4Size);text-align:center}.is-style-offcanvas .widget_shopping_cart .widgettitle::after{content:"";display:inline-block;position:absolute;top:50%;left:.75rem;transform:translateY(-50%);width:2rem;height:2rem;border:1px solid var(--text);border-bottom-width:2px;border-radius:var(--gRadius);background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNTIgNTEyIj48cGF0aCBkPSJNMjQyLjcyIDI1NmwxMDAuMDctMTAwLjA3YzEyLjI4LTEyLjI4IDEyLjI4LTMyLjE5IDAtNDQuNDhsLTIyLjI0LTIyLjI0Yy0xMi4yOC0xMi4yOC0zMi4xOS0xMi4yOC00NC40OCAwTDE3NiAxODkuMjggNzUuOTMgODkuMjFjLTEyLjI4LTEyLjI4LTMyLjE5LTEyLjI4LTQ0LjQ4IDBMOS4yMSAxMTEuNDVjLTEyLjI4IDEyLjI4LTEyLjI4IDMyLjE5IDAgNDQuNDhMMTA5LjI4IDI1NiA5LjIxIDM1Ni4wN2MtMTIuMjggMTIuMjgtMTIuMjggMzIuMTkgMCA0NC40OGwyMi4yNCAyMi4yNGMxMi4yOCAxMi4yOCAzMi4yIDEyLjI4IDQ0LjQ4IDBMMTc2IDMyMi43MmwxMDAuMDcgMTAwLjA3YzEyLjI4IDEyLjI4IDMyLjIgMTIuMjggNDQuNDggMGwyMi4yNC0yMi4yNGMxMi4yOC0xMi4yOCAxMi4yOC0zMi4xOSAwLTQ0LjQ4TDI0Mi43MiAyNTZ6Ii8+PC9zdmc+) no-repeat center center;background-size:.75rem auto;opacity:.5}.widget_shopping_cart_content{display:flex;flex-direction:column;flex:1;color:var(--text)}}@media all{.the-content~*{max-width:var(--blogWidth);margin-top:var(--blockSpacing);margin-left:auto;margin-right:auto}}@media all{.learn-press-message{position:relative;margin:24px auto!important;padding:10px 50px 10px 15px;border-top:5px solid #00adff;border-radius:0 0 5px 5px;background:#f5f5f5;width:100%}.learn-press-message::after,.learn-press-message::before{position:absolute;top:0;content:""}.learn-press-message::before{right:20px;width:20px;height:30px;background:#00adff}.learn-press-message::after{top:10px;right:20px;width:0;height:0;border:10px solid transparent;border-bottom-color:#f5f5f5}.learn-press-message.success{border-color:#059601;margin:24px auto!important}.learn-press-message.success::before{background:#059601}.learn-press-message a{text-decoration:underline}a{text-decoration:none}*{box-sizing:border-box;margin:0;padding:0}html{overflow-x:hidden}body{background:#fff}body.learnpress-page{overflow-x:hidden}footer{clear:both}}@media all{.fa{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1}@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:400;font-display:auto}@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:auto}.fa{font-family:"Font Awesome 5 Free"}.fa{font-weight:900}}</style><title>HSK 4 | Daftar Kosakata &amp; Download Soal Ujian | Pandarin</title>
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+<!-- The SEO Framework by Sybre Waaijer -->
+<link rel="canonical" href="https://pandarin.net/hsk/level4/">
+<meta name="description" content="Pelajari 600 kosakata HSK 4 disini. Download dan kerjakan soal, kemudian cocokkan dengan kunci jawaban. Bandingkan nilaimu dengan peserta ujian lain.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pandarin">
+<meta property="og:title" content="HSK 4 | Daftar Kosakata &amp; Download Soal Ujian | Pandarin">
+<meta property="og:description" content="Pelajari 600 kosakata HSK 4 disini. Download dan kerjakan soal, kemudian cocokkan dengan kunci jawaban. Bandingkan nilaimu dengan peserta ujian lain.">
+<meta property="og:url" content="https://pandarin.net/hsk/level4/">
+<meta property="og:image" content="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSK 4 | Daftar Kosakata &amp; Download Soal Ujian | Pandarin">
+<meta name="twitter:description" content="Pelajari 600 kosakata HSK 4 disini. Download dan kerjakan soal, kemudian cocokkan dengan kunci jawaban. Bandingkan nilaimu dengan peserta ujian lain.">
+<meta name="twitter:image" content="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://pandarin.net/#/schema/WebSite","url":"https://pandarin.net/","name":"Pandarin","description":"Pelatihan online Bahasa Mandarin dengan guru native Tiongkok; untuk persiapan kuliah, ujian HSK, atau bekerja.","inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://pandarin.net/search/{search_term_string}/"},"query-input":"required name=search_term_string"},"publisher":{"@type":"Organization","@id":"https://pandarin.net/#/schema/Organization","name":"Pandarin","url":"https://pandarin.net/","logo":{"@type":"ImageObject","url":"https://pandarin.net/wp-content/uploads/2024/12/logo.png","contentUrl":"https://pandarin.net/wp-content/uploads/2024/12/logo.png","width":300,"height":72,"contentSize":"1741"}}},{"@type":"WebPage","@id":"https://pandarin.net/hsk/level4/","url":"https://pandarin.net/hsk/level4/","name":"HSK 4 | Daftar Kosakata &#038; Download Soal Ujian | Pandarin","description":"Pelajari 600 kosakata HSK 4 disini. Download dan kerjakan soal, kemudian cocokkan dengan kunci jawaban. Bandingkan nilaimu dengan peserta ujian lain.","inLanguage":"en-US","isPartOf":{"@id":"https://pandarin.net/#/schema/WebSite"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://pandarin.net/#/schema/BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":"https://pandarin.net/","name":"Pandarin"},{"@type":"ListItem","position":2,"item":"https://pandarin.net/hsk/","name":"Info Lengkap Ujian HSK 2024"},{"@type":"ListItem","position":3,"name":"HSK 4 | Daftar Kosakata &#038; Download Soal Ujian"}]},"potentialAction":{"@type":"ReadAction","target":"https://pandarin.net/hsk/level4/"}}]}</script>
+<!-- / The SEO Framework by Sybre Waaijer | 14.66ms meta | 7.45ms boot -->
+
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<noscript><link rel='stylesheet' id='mediaelement-css' href='https://pandarin.net/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' media='all' />
+</noscript><link rel="stylesheet" id="mediaelement-css" href="https://pandarin.net/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" media="all">
+<noscript><link rel='stylesheet' id='wp-mediaelement-css' href='https://pandarin.net/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.8.3' media='all' />
+</noscript><link rel="stylesheet" id="wp-mediaelement-css" href="https://pandarin.net/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.8.3" media="all">
+<noscript><link rel='stylesheet' id='pb-accordion-blocks-style-css' href='https://pandarin.net/wp-content/plugins/accordion-blocks/build/index.css?ver=1.5.0' media='all' />
+</noscript><link rel="stylesheet" id="pb-accordion-blocks-style-css" href="https://pandarin.net/wp-content/plugins/accordion-blocks/build/index.css?ver=1.5.0" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="dominant-color-styles-inline-css">
+img[data-dominant-color]:not(.has-transparency) { background-color: var(--dominant-color); }
+</style>
+<style id="woocommerce-inline-inline-css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<noscript><link rel='stylesheet' id='brands-styles-css' href='https://pandarin.net/wp-content/plugins/woocommerce/assets/css/brands.css?ver=10.1.2' media='all' />
+</noscript><link rel="stylesheet" id="brands-styles-css" href="https://pandarin.net/wp-content/plugins/woocommerce/assets/css/brands.css?ver=10.1.2" media="all">
+<noscript><link rel='stylesheet' id='pxp-public-css' href='https://pandarin.net/wp-content/plugins/pixel-performance-lab/_dist/pxp-public.css?ver=1.0.1' media='all' />
+</noscript><link rel="stylesheet" id="pxp-public-css" href="https://pandarin.net/wp-content/plugins/pixel-performance-lab/_dist/pxp-public.css?ver=1.0.1" media="all">
+<noscript><link rel='stylesheet' id='my-main-css' href='https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-main.css?ver=6.6.12' media='all' />
+</noscript><link rel="stylesheet" id="my-main-css" href="https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-main.css?ver=6.6.12" media="all">
+<noscript><link rel='stylesheet' id='dashicons-css' href='https://pandarin.net/wp-includes/css/dashicons.min.css?ver=6.8.3' media='all' />
+</noscript><link rel="stylesheet" id="dashicons-css" href="https://pandarin.net/wp-includes/css/dashicons.min.css?ver=6.8.3" media="all">
+<noscript><link rel='stylesheet' id='block-speak-view-css' href='https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-speak-view.css?ver=2023.12.20' media='all' />
+</noscript><link rel="stylesheet" id="block-speak-view-css" href="https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-speak-view.css?ver=2023.12.20" media="all">
+<noscript><link rel='stylesheet' id='block-word-view-css' href='https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-word-view.css?ver=2024.03.13' media='all' />
+</noscript><link rel="stylesheet" id="block-word-view-css" href="https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-word-view.css?ver=2024.03.13" media="all">
+<noscript><link rel='stylesheet' id='my-gutenberg-css' href='https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-gutenberg.css?ver=6.6.12' media='all' />
+</noscript><link rel="stylesheet" id="my-gutenberg-css" href="https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-gutenberg.css?ver=6.6.12" media="all">
+<noscript><link rel='stylesheet' id='my-shop-css' href='https://pandarin.net/wp-content/themes/pandarin-new/_dist/shop.css?ver=6.6.12' media='all' />
+</noscript><link rel="stylesheet" id="my-shop-css" href="https://pandarin.net/wp-content/themes/pandarin-new/_dist/shop.css?ver=6.6.12" media="all">
+<noscript><link rel='stylesheet' id='learnpress-widgets-css' href='https://pandarin.net/wp-content/plugins/learnpress/assets/css/widgets.min.css?ver=4.2.9' media='all' />
+</noscript><link rel="stylesheet" id="learnpress-widgets-css" href="https://pandarin.net/wp-content/plugins/learnpress/assets/css/widgets.min.css?ver=4.2.9" media="all">
+<script src="https://pandarin.net/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.10.1.2" id="jquery-blockui-js" data-wp-strategy="defer"></script>
+<script id="wc-add-to-cart-js-extra">
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/pandarin.net\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+</script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=10.1.2" id="wc-add-to-cart-js" data-wp-strategy="defer"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.10.1.2" id="js-cookie-js" data-wp-strategy="defer"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+</script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=10.1.2" id="woocommerce-js" data-wp-strategy="defer"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/learnpress/assets/js/dist/loadAJAX.min.js?ver=4.2.9" id="lp-load-ajax-js" async="" data-wp-strategy="async"></script>
+<meta name="generator" content="performance-lab 3.9.0; plugins: dominant-color-images, image-prioritizer, performant-translations, speculation-rules">
+<meta name="generator" content="performant-translations 1.2.0">
+<meta name="generator" content="dominant-color-images 1.2.0">
+<meta name="generator" content="speculation-rules 1.5.0">
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="optimization-detective 1.0.0-beta3">
+<meta name="generator" content="image-prioritizer 1.0.0-beta2">
+<link rel="icon" href="https://pandarin.net/wp-content/uploads/2019/04/favicon.png" sizes="32x32">
+<link rel="icon" href="https://pandarin.net/wp-content/uploads/2019/04/favicon.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://pandarin.net/wp-content/uploads/2019/04/favicon.png">
+<meta name="msapplication-TileImage" content="https://pandarin.net/wp-content/uploads/2019/04/favicon.png">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-732M7SSZDR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-732M7SSZDR');
+</script>		<style id="wp-custom-css">
+			.post-meta .meta-category {
+    text-transform: none;
+}
+
+.tooltip--red .tip-title {
+    background-color: #fca9a4;
+}
+
+sup {
+    font-size: 50%;
+	  top: -.7em;
+}
+
+.menu-phone {
+    font-size: 14px;
+}
+
+.wp-block-table tr:first-child td {
+    background:none;
+}
+
+.wp-block-table td {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+.kosakata {
+	font-size:24px;
+}
+
+.wp-block-embed {
+    margin-top: 0.35rem;
+}
+
+@media (min-width:767px) {
+	.chapter .button {
+	    min-width: 40px;
+  }
+}
+
+.wp-block-pb-accordion-item .c-accordion__content {
+	margin-bottom: 1.5rem;
+}
+
+.pl20 {
+	padding-left: 20px;
+}
+
+.button,
+[type=submit],
+[type=reset],
+.wp-block-file__button,
+.wp-block-button__link {
+	font-size: 1em;
+}
+
+#popup-content {
+    margin: 70px 0 0px 0;
+}		</style>
+		
+  <style>
+    
+    
+      </style>
+<link data-od-added-tag="" rel="preload" fetchpriority="high" as="image" href="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png" imagesrcset="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png 800w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-480x480.png 480w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-150x150.png 150w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-50x50.png 50w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-100x100.png 100w" imagesizes="(width &lt;= 480px) 380px, (480px &lt; width &lt;= 600px) 534px, (600px &lt; width &lt;= 782px) 704px, (782px &lt; width) 365px" media="screen">
+<style type="text/css">.fancybox-margin{margin-right:16px;}</style></head>
+<body class="wp-singular page-template-default page page-id-8563 page-child parent-pageid-7200 wp-custom-logo wp-embed-responsive wp-theme-pandarin-new theme-pandarin-new woocommerce-js">
+
+<div id="main-wrapper">
+
+
+<!-- Main Navigation Menu -->
+<div class="menu-decor">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<header class="main-header is-stuck">
+  <div class="main-header__inner">
+    <a class="toggle-offcanvas" href="#menu">
+      <span>Menu</span>
+    </a>
+
+    <div class="menu-logo">
+      <a href="https://pandarin.net/" class="custom-logo-link" rel="home"><img data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[2][self::HEADER]/*[1][self::DIV]/*[2][self::DIV]/*[1][self::A]/*[1][self::IMG]" width="300" height="72" src="https://pandarin.net/wp-content/uploads/2024/12/logo.png" class="custom-logo" alt="Pandarin" decoding="async"></a>    </div>
+
+    <section class="nav-wrapper">
+      <ul id="menu-main-menu" class="menu header-menu"><li class="menu-item menu-item-has-children menu-item-150"><a>materi</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-196"><a href="https://pandarin.net/materi/percakapan/">Mandarin Percakapan</a></li>
+	<li class="submenu-item menu-item-195"><a href="https://pandarin.net/materi/bisnis/">Mandarin Bisnis</a></li>
+	<li class="submenu-item menu-item-4294"><a href="https://pandarin.net/materi/hsk/">Materi HSK</a></li>
+	<li class="submenu-item menu-item-9469"><a href="https://pandarin.net/mandarin-song/">Lagu Mandarin</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children menu-item-857"><a>kursus</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-831"><a href="https://pandarin.net/kursus/privat/">Kelas Privat</a></li>
+	<li class="submenu-item menu-item-829"><a href="https://pandarin.net/kursus/grup/">Kelas Grup</a></li>
+</ul>
+</li>
+<li class="menu-item current-menu-ancestor menu-item-has-children mega-menu-wrapper has-columns-3 is-align-center menu-item-18765"><a>HSK</a>
+<ul class="mega-menu">
+	<li class="current-menu-ancestor current-menu-parent mega-menu__column menu-item-18766"><a>Kosakata &amp; Soal Ujian</a>
+	<ul>
+		<li class="submenu-item menu-item-7870"><a href="https://pandarin.net/hsk/level1/">HSK 1</a></li>
+		<li class="submenu-item menu-item-7906"><a href="https://pandarin.net/hsk/level2/">HSK 2</a></li>
+		<li class="submenu-item menu-item-7997"><a href="https://pandarin.net/hsk/level3/">HSK 3</a></li>
+		<li class="submenu-item current-menu-item page_item page-item-8563 current_page_item menu-item-8762"><a href="https://pandarin.net/hsk/level4/" aria-current="page">HSK 4</a></li>
+		<li class="submenu-item menu-item-9680"><a href="https://pandarin.net/hsk/level5/">HSK 5</a></li>
+		<li class="submenu-item menu-item-18744"><a href="https://pandarin.net/hsk/level6/">HSK 6</a></li>
+	</ul>
+</li>
+	<li class="mega-menu__column menu-item-18767"><a>Audio &amp; Jawaban Workbook</a>
+	<ul>
+		<li class="submenu-item menu-item-5493"><a href="https://pandarin.net/belajar/hsk1-chapter1/">HSK 1</a></li>
+		<li class="submenu-item menu-item-5518"><a href="https://pandarin.net/belajar/hsk2-chapter1/">HSK 2</a></li>
+		<li class="submenu-item menu-item-5832"><a href="https://pandarin.net/belajar/hsk3-chapter1/">HSK 3</a></li>
+		<li class="submenu-item menu-item-11025"><a href="https://pandarin.net/belajar/hsk4-chapter1/">HSK 4</a></li>
+		<li class="submenu-item menu-item-10737"><a href="https://pandarin.net/belajar/hsk5-chapter1/">HSK 5</a></li>
+		<li class="submenu-item menu-item-10817"><a href="https://pandarin.net/belajar/hsk6-chapter1/">HSK 6</a></li>
+	</ul>
+</li>
+	<li class="mega-menu__column menu-item-18769"><a>Info &amp; Jadwal Ujian</a>
+	<ul>
+		<li class="submenu-item current-page-ancestor current-page-parent menu-item-18774"><a href="https://pandarin.net/hsk/">Ujian HSK 2025</a></li>
+		<li class="submenu-item menu-item-18773"><a href="https://pandarin.net/hsk-online/">Ujian HSK Online</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children has-columns-3 is-align-center menu-item-9670"><a>New HSK</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-9663"><a href="https://pandarin.net/new-hsk/">Info New HSK</a></li>
+	<li class="submenu-item menu-item-9669"><a href="https://pandarin.net/new-hsk/level1/">Kosakata New HSK 1</a></li>
+	<li class="submenu-item menu-item-9668"><a href="https://pandarin.net/new-hsk/level2/">Kosakata New HSK 2</a></li>
+	<li class="submenu-item menu-item-9667"><a href="https://pandarin.net/new-hsk/level3/">Kosakata New HSK 3</a></li>
+	<li class="submenu-item menu-item-9666"><a href="https://pandarin.net/new-hsk/level4/">Kosakata New HSK 4</a></li>
+	<li class="submenu-item menu-item-9665"><a href="https://pandarin.net/new-hsk/level5/">Kosakata New HSK 5</a></li>
+	<li class="submenu-item menu-item-9664"><a href="https://pandarin.net/new-hsk/level6/">Kosakata New HSK 6</a></li>
+	<li class="submenu-item menu-item-9715"><a href="https://pandarin.net/new-hsk/level7/">Kosakata New HSK 7</a></li>
+	<li class="submenu-item menu-item-9840"><a href="https://pandarin.net/new-hsk/level8/">Kosakata New HSK 8</a></li>
+	<li class="submenu-item menu-item-9839"><a href="https://pandarin.net/new-hsk/level9/">Kosakata New HSK 9</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-19409"><a href="https://pandarin.net/penerjemah/dokumen/">penerjemah</a></li>
+<li class="menu-item menu-item-25519"><a href="https://pandarin.net/lowongan-kerja/">karir</a></li>
+<li class="menu-item menu-item-11445"><a href="https://pandarin.net/shop/">shop</a></li>
+</ul>    </section>
+
+    <div class="header-buttons">
+            <div class="h-cart is-style-offcanvas">
+                  <a href="#" class="h-widget-button is-cart-button is-cart-empty">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="50" height="50"><path d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>  <span>Cart</span>
+  </a>                <div class="widget woocommerce widget_shopping_cart"><h2 class="widgettitle">Cart</h2><div class="widget_shopping_cart_content">
+
+	<p class="woocommerce-mini-cart__empty-message">No products in the cart.</p>
+
+
+</div></div>      </div>
+            
+      <a href="https://pandarin.net/my-profile/" class="header-button__login" title="Login"></a>
+      <a href="https://wa.me/6282113458877" class="header-button__whatsapp" id="my_phone_no" title="Contact WhatsApp"></a>
+    </div>
+  </div>
+</header>
+
+<!-- Offcanvas -->
+<aside class="offcanvas" role="navigation">
+  <a class="toggle-offcanvas" href="#menu">
+    <span>Close</span>
+  </a>
+
+  <div class="offcanvas__inner">
+    <ul id="menu-main-menu-1" class="menu offcanvas-menu"><li class="menu-item menu-item-has-children menu-item-150"><a>materi</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-196"><a href="https://pandarin.net/materi/percakapan/">Mandarin Percakapan</a></li>
+	<li class="submenu-item menu-item-195"><a href="https://pandarin.net/materi/bisnis/">Mandarin Bisnis</a></li>
+	<li class="submenu-item menu-item-4294"><a href="https://pandarin.net/materi/hsk/">Materi HSK</a></li>
+	<li class="submenu-item menu-item-9469"><a href="https://pandarin.net/mandarin-song/">Lagu Mandarin</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children menu-item-857"><a>kursus</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-831"><a href="https://pandarin.net/kursus/privat/">Kelas Privat</a></li>
+	<li class="submenu-item menu-item-829"><a href="https://pandarin.net/kursus/grup/">Kelas Grup</a></li>
+</ul>
+</li>
+<li class="menu-item current-menu-ancestor menu-item-has-children mega-menu-wrapper has-columns-3 is-align-center menu-item-18765"><a>HSK</a>
+<ul class="mega-menu">
+	<li class="current-menu-ancestor current-menu-parent mega-menu__column menu-item-18766"><a>Kosakata &amp; Soal Ujian</a>
+	<ul>
+		<li class="submenu-item menu-item-7870"><a href="https://pandarin.net/hsk/level1/">HSK 1</a></li>
+		<li class="submenu-item menu-item-7906"><a href="https://pandarin.net/hsk/level2/">HSK 2</a></li>
+		<li class="submenu-item menu-item-7997"><a href="https://pandarin.net/hsk/level3/">HSK 3</a></li>
+		<li class="submenu-item current-menu-item page_item page-item-8563 current_page_item menu-item-8762"><a href="https://pandarin.net/hsk/level4/" aria-current="page">HSK 4</a></li>
+		<li class="submenu-item menu-item-9680"><a href="https://pandarin.net/hsk/level5/">HSK 5</a></li>
+		<li class="submenu-item menu-item-18744"><a href="https://pandarin.net/hsk/level6/">HSK 6</a></li>
+	</ul>
+</li>
+	<li class="mega-menu__column menu-item-18767"><a>Audio &amp; Jawaban Workbook</a>
+	<ul>
+		<li class="submenu-item menu-item-5493"><a href="https://pandarin.net/belajar/hsk1-chapter1/">HSK 1</a></li>
+		<li class="submenu-item menu-item-5518"><a href="https://pandarin.net/belajar/hsk2-chapter1/">HSK 2</a></li>
+		<li class="submenu-item menu-item-5832"><a href="https://pandarin.net/belajar/hsk3-chapter1/">HSK 3</a></li>
+		<li class="submenu-item menu-item-11025"><a href="https://pandarin.net/belajar/hsk4-chapter1/">HSK 4</a></li>
+		<li class="submenu-item menu-item-10737"><a href="https://pandarin.net/belajar/hsk5-chapter1/">HSK 5</a></li>
+		<li class="submenu-item menu-item-10817"><a href="https://pandarin.net/belajar/hsk6-chapter1/">HSK 6</a></li>
+	</ul>
+</li>
+	<li class="mega-menu__column menu-item-18769"><a>Info &amp; Jadwal Ujian</a>
+	<ul>
+		<li class="submenu-item current-page-ancestor current-page-parent menu-item-18774"><a href="https://pandarin.net/hsk/">Ujian HSK 2025</a></li>
+		<li class="submenu-item menu-item-18773"><a href="https://pandarin.net/hsk-online/">Ujian HSK Online</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children has-columns-3 is-align-center menu-item-9670"><a>New HSK</a>
+<ul class="submenu submenu-depth-1">
+	<li class="submenu-item menu-item-9663"><a href="https://pandarin.net/new-hsk/">Info New HSK</a></li>
+	<li class="submenu-item menu-item-9669"><a href="https://pandarin.net/new-hsk/level1/">Kosakata New HSK 1</a></li>
+	<li class="submenu-item menu-item-9668"><a href="https://pandarin.net/new-hsk/level2/">Kosakata New HSK 2</a></li>
+	<li class="submenu-item menu-item-9667"><a href="https://pandarin.net/new-hsk/level3/">Kosakata New HSK 3</a></li>
+	<li class="submenu-item menu-item-9666"><a href="https://pandarin.net/new-hsk/level4/">Kosakata New HSK 4</a></li>
+	<li class="submenu-item menu-item-9665"><a href="https://pandarin.net/new-hsk/level5/">Kosakata New HSK 5</a></li>
+	<li class="submenu-item menu-item-9664"><a href="https://pandarin.net/new-hsk/level6/">Kosakata New HSK 6</a></li>
+	<li class="submenu-item menu-item-9715"><a href="https://pandarin.net/new-hsk/level7/">Kosakata New HSK 7</a></li>
+	<li class="submenu-item menu-item-9840"><a href="https://pandarin.net/new-hsk/level8/">Kosakata New HSK 8</a></li>
+	<li class="submenu-item menu-item-9839"><a href="https://pandarin.net/new-hsk/level9/">Kosakata New HSK 9</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-19409"><a href="https://pandarin.net/penerjemah/dokumen/">penerjemah</a></li>
+<li class="menu-item menu-item-25519"><a href="https://pandarin.net/lowongan-kerja/">karir</a></li>
+<li class="menu-item menu-item-11445"><a href="https://pandarin.net/shop/">shop</a></li>
+</ul>  </div>
+</aside>
+  <main class="the-content">
+    
+<div class="wp-block-group is-layout-constrained   alignfull has-white-color has-light-background-color has-text-color has-background">
+<div class="wp-block-columns alignwide">
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:66.66%">
+<h1 class="wp-block-heading has-dark-color has-text-color">Ujian HSK 4</h1>
+
+
+
+<p class="has-dark-color has-text-color">Ujian HSK 4 ditujukan untuk pelajar yang telah menguasai 1200 kosakata Mandarin. Pemegang sertifikat HSK 4 dinilai telah lancar dalam menggunakan Mandarin secara lisan dan tulisan, dalam situasi formal maupun nonformal. HSK 4 dibutuhkan untuk mendapatkan beasiswa studi atau bekerja di Tiongkok.</p>
+</div>
+
+
+
+<div class="wp-block-column" style="flex-basis:33.33%">
+<figure class="wp-block-image size-full"><img data-od-fetchpriority-already-added="" data-od-replaced-sizes="(max-width: 800px) 100vw, 800px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[1][self::DIV]/*[1][self::DIV]/*[2][self::DIV]/*[1][self::FIGURE]/*[1][self::IMG]" fetchpriority="high" decoding="async" width="800" height="800" src="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png" alt="" class="wp-image-11625" srcset="https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min.png 800w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-480x480.png 480w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-150x150.png 150w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-50x50.png 50w, https://pandarin.net/wp-content/uploads/2023/06/pandarin-hsk-buku-4-min-100x100.png 100w" sizes="(width &lt;= 480px) 380px, (480px &lt; width &lt;= 600px) 534px, (600px &lt; width &lt;= 782px) 704px, (782px &lt; width) 365px"></figure>
+
+
+
+<div style="margin-bottom:-200px" aria-hidden="true" class="wp-block-spacer is-style-px-negative"></div>
+</div>
+</div>
+</div>
+
+
+
+<div style="height:200px" aria-hidden="true" class="wp-block-spacer is-style-hide-desktop"></div>
+
+
+
+<div class="wp-block-buttons alignwide">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#kosakata">kosakata</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#soal">soal</a></div>
+</div>
+
+
+
+<h1 class="wp-block-heading alignwide">shop</h1>
+
+
+
+<div class="wp-block-group is-layout-constrained   alignwide"><div data-block-name="woocommerce/product-category" data-categories="[97]" data-columns="4" class="wc-block-grid wp-block-product-category wp-block-woocommerce-product-category wc-block-product-category has-4-columns has-multiple-rows alignfull"><ul class="wc-block-grid__products"><li class="wc-block-grid__product">
+    <a href="https://pandarin.net/product/hskk-intermediate-official-papers-10-set/" class="wc-block-grid__product-link">
+      <div class="wc-block-grid__product-image"><img data-od-replaced-sizes="(max-width: 1080px) 100vw, 1080px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[5][self::DIV]/*[1][self::DIV]/*[1][self::UL]/*[1][self::LI]/*[1][self::A]/*[1][self::DIV]/*[1][self::IMG]" decoding="async" width="1080" height="1080" src="https://pandarin.net/wp-content/uploads/2025/06/hskk-inter-1.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="HSKK Intermediate Official Papers (10 Set)" srcset="https://pandarin.net/wp-content/uploads/2025/06/hskk-inter-1.jpg 1080w, https://pandarin.net/wp-content/uploads/2025/06/hskk-inter-1-480x480.jpg 480w, https://pandarin.net/wp-content/uploads/2025/06/hskk-inter-1-150x150.jpg 150w" sizes="(width &lt;= 480px) 412px, (480px &lt; width &lt;= 600px) 480px, (600px &lt; width &lt;= 782px) 172px, (782px &lt; width) 268px"></div>
+      <div class="wc-block-grid__product-title">HSKK Intermediate Official Papers (10 Set)</div>
+    </a>
+    
+    <div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>&nbsp;50.000</span></div>
+    
+    <div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/hsk/level4/?add-to-cart=25735" aria-label="Add to cart: “HSKK Intermediate Official Papers (10 Set)”" data-quantity="1" data-product_id="25735" data-product_sku="" data-price="50000" rel="nofollow" class="wp-block-button__link  add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
+  </li><li class="wc-block-grid__product">
+    <a href="https://pandarin.net/product/hsk-4-exam-papers-library-25-set/" class="wc-block-grid__product-link">
+      <div class="wc-block-grid__product-image"><img data-od-replaced-sizes="(max-width: 1080px) 100vw, 1080px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[5][self::DIV]/*[1][self::DIV]/*[1][self::UL]/*[2][self::LI]/*[1][self::A]/*[1][self::DIV]/*[1][self::IMG]" decoding="async" width="1080" height="1080" src="https://pandarin.net/wp-content/uploads/2025/05/hsk4library1.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="HSK 4 Exam Papers Library (25 Set)" srcset="https://pandarin.net/wp-content/uploads/2025/05/hsk4library1.jpg 1080w, https://pandarin.net/wp-content/uploads/2025/05/hsk4library1-480x480.jpg 480w, https://pandarin.net/wp-content/uploads/2025/05/hsk4library1-150x150.jpg 150w" sizes="(width &lt;= 480px) 412px, (480px &lt; width &lt;= 600px) 480px, (600px &lt; width &lt;= 782px) 172px, (782px &lt; width) 268px"></div>
+      <div class="wc-block-grid__product-title">HSK 4 Exam Papers Library (25 Set)</div>
+    </a>
+    
+    <div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>&nbsp;50.000</span></div>
+    
+    <div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/hsk/level4/?add-to-cart=25652" aria-label="Add to cart: “HSK 4 Exam Papers Library (25 Set)”" data-quantity="1" data-product_id="25652" data-product_sku="" data-price="50000" rel="nofollow" class="wp-block-button__link  add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
+  </li><li class="wc-block-grid__product">
+    <a href="https://pandarin.net/product/persiapanhsk4a/" class="wc-block-grid__product-link">
+      <div class="wc-block-grid__product-image"><img data-od-replaced-sizes="(max-width: 1080px) 100vw, 1080px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[5][self::DIV]/*[1][self::DIV]/*[1][self::UL]/*[3][self::LI]/*[1][self::A]/*[1][self::DIV]/*[1][self::IMG]" decoding="async" width="1080" height="1080" src="https://pandarin.net/wp-content/uploads/2023/02/HSK4A_01.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Panduan Persiapan HSK 4A" srcset="https://pandarin.net/wp-content/uploads/2023/02/HSK4A_01.jpg 1080w, https://pandarin.net/wp-content/uploads/2023/02/HSK4A_01-480x480.jpg 480w, https://pandarin.net/wp-content/uploads/2023/02/HSK4A_01-150x150.jpg 150w" sizes="(width &lt;= 480px) 412px, (480px &lt; width &lt;= 600px) 480px, (600px &lt; width &lt;= 782px) 172px, (782px &lt; width) 268px"></div>
+      <div class="wc-block-grid__product-title">Panduan Persiapan HSK 4A</div>
+    </a>
+    <span class="wc-block-grid__product-badge h-outofstock">Out of Stock</span>
+    <div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>&nbsp;154.000</span></div>
+    
+    <div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="https://pandarin.net/product/persiapanhsk4a/" aria-label="Read more about “Panduan Persiapan HSK 4A”" data-quantity="1" data-product_id="11193" data-product_sku="" data-price="154000" rel="nofollow" class="wp-block-button__link  add_to_cart_button">Read more</a></div>
+  </li><li class="wc-block-grid__product">
+    <a href="https://pandarin.net/product/persiapanhsk4b/" class="wc-block-grid__product-link">
+      <div class="wc-block-grid__product-image"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 1080px) 100vw, 1080px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[5][self::DIV]/*[1][self::DIV]/*[1][self::UL]/*[4][self::LI]/*[1][self::A]/*[1][self::DIV]/*[1][self::IMG]" loading="lazy" decoding="async" width="1080" height="1080" src="https://pandarin.net/wp-content/uploads/2023/02/HSK4B_01.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Panduan Persiapan HSK 4B" srcset="https://pandarin.net/wp-content/uploads/2023/02/HSK4B_01.jpg 1080w, https://pandarin.net/wp-content/uploads/2023/02/HSK4B_01-480x480.jpg 480w, https://pandarin.net/wp-content/uploads/2023/02/HSK4B_01-150x150.jpg 150w" sizes="auto, (max-width: 1080px) 100vw, 1080px"></div>
+      <div class="wc-block-grid__product-title">Panduan Persiapan HSK 4B</div>
+    </a>
+    
+    <div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>&nbsp;154.000</span></div>
+    
+    <div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/hsk/level4/?add-to-cart=11196" aria-label="Add to cart: “Panduan Persiapan HSK 4B”" data-quantity="1" data-product_id="11196" data-product_sku="" data-price="154000" rel="nofollow" class="wp-block-button__link  add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
+  </li></ul></div></div>
+
+
+
+<div class="wp-block-group is-layout-constrained   alignfull">
+<h1 class="wp-block-heading alignwide has-text-align-wide" id="soal">soal &amp; jawaban</h1>
+
+
+
+<p class="alignwide has-text-align-wide">Ujian HSK 4 terdiri dari 40 soal Listening, 40 soal Reading, dan 15 soal Writing, dengan total durasi 85 menit. Setiap soal Listening HSK 4 hanya diputar satu kali.</p>
+
+
+
+<div class="wp-block-columns alignwide has-2-columns">
+<div class="wp-block-column">
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="true" data-scroll="false" data-scroll-offset="0"><h2 id="at-85630" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85630" aria-expanded="false"><strong>Download Ujian H41003</strong></h2><div id="ac-85630" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41003-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41003-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41003-audio.mp3"></audio></figure>
+</div></div>
+
+
+
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="false" data-scroll="false" data-scroll-offset="0"><h2 id="at-85631" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85631" aria-expanded="false"><strong><strong>Download </strong>Ujian H41004</strong></h2><div id="ac-85631" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41004-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41004-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41004-audio.mp3"></audio></figure>
+</div></div>
+
+
+
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="false" data-scroll="false" data-scroll-offset="0"><h2 id="at-85632" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85632" aria-expanded="false"><strong><strong>Download </strong>Ujian H41005</strong></h2><div id="ac-85632" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41005-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41005-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41005-audio.mp3"></audio></figure>
+</div></div>
+</div>
+
+
+
+<div class="wp-block-column">
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="false" data-scroll="false" data-scroll-offset="0"><h2 id="at-85633" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85633" aria-expanded="false"><strong><strong>Download </strong>Ujian H41327</strong></h2><div id="ac-85633" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41327-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41327-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41327-audio.mp3"></audio></figure>
+</div></div>
+
+
+
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="false" data-scroll="false" data-scroll-offset="0"><h2 id="at-85634" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85634" aria-expanded="false"><strong><strong>Download </strong></strong><strong>Ujian H41328</strong></h2><div id="ac-85634" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41328-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41328-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41328-audio.mp3"></audio></figure>
+</div></div>
+
+
+
+<div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="false" data-scroll="false" data-scroll-offset="0"><h2 id="at-85635" class="c-accordion__title js-accordion-controller" role="button" tabindex="0" aria-controls="ac-85635" aria-expanded="false"><strong><strong>Download </strong>Ujian H41329</strong></h2><div id="ac-85635" class="c-accordion__content" hidden="hidden">
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41329-soal.pdf" target="_blank" rel="noreferrer noopener">soal ujian</a></div>
+
+
+
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://pandarin.net/wp-content/uploads/2019/12/HSK4-H41329-jawaban.pdf" target="_blank" rel="noreferrer noopener">jawaban</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-audio"><audio controls="" src="https://pandarin.net/wp-content/uploads/2020/05/HSK4-H41329-audio.mp3"></audio></figure>
+</div></div>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained   alignfull has-white-background-color has-background">
+<h1 class="wp-block-heading alignwide has-text-align-wide" id="kosakata">kosakata</h1>
+
+
+
+<p class="alignwide has-text-align-wide">Peserta ujian HSK 4 perlu menguasai 600 kosakata dari HSK 1-3 dan 600 kosakata baru di bawah ini. Klik huruf untuk melihat pinyin dan arti.</p>
+
+
+
+<p class="alignwide has-text-align-wide"><em>If you prefer to hide the Indonesian translation, visit <strong><a href="https://pandarin.net/book/sample-book/hsk-words/lessons/hsk-4-words/">this page</a></strong>.</em></p>
+
+
+
+
+
+
+<div class="wp-block-group alignfull has-light-background-color has-background">
+<h2 class="alignwide has-text-align-wide wp-block-heading">Level HSK Lainnya</h2>
+
+
+
+<div class="wp-block-columns alignwide">
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level1/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[2][self::DIV]/*[1][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-1.jpg" alt="" class="wp-image-8579" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-1.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-1-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+
+
+
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level2/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[2][self::DIV]/*[2][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-2.jpg" alt="" class="wp-image-8580" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-2.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-2-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+
+
+
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level3/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[2][self::DIV]/*[3][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-3.jpg" alt="" class="wp-image-8581" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-3.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-3-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+</div>
+
+
+
+<div class="wp-block-columns alignwide">
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level4/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[3][self::DIV]/*[1][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-4.jpg" alt="" class="wp-image-8582" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-4.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-4-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+
+
+
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level5/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[3][self::DIV]/*[2][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-5.jpg" alt="" class="wp-image-8583" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-5.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-5-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+
+
+
+<div class="wp-block-column">
+<figure class="wp-block-image size-large"><a href="https://pandarin.net/hsk/level6/" target="_blank" rel="noopener noreferrer"><img data-od-added-loading="" data-od-replaced-sizes="(max-width: 540px) 100vw, 540px" data-od-xpath="/HTML/BODY/DIV[@id='main-wrapper']/*[4][self::MAIN]/*[8][self::DIV]/*[3][self::DIV]/*[3][self::DIV]/*[1][self::FIGURE]/*[1][self::A]/*[1][self::IMG]" loading="lazy" decoding="async" width="540" height="180" src="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-6.jpg" alt="" class="wp-image-8584" srcset="https://pandarin.net/wp-content/uploads/2019/12/link-HSK-6.jpg 540w, https://pandarin.net/wp-content/uploads/2019/12/link-HSK-6-480x160.jpg 480w" sizes="auto, (max-width: 540px) 100vw, 540px"></a></figure>
+</div>
+</div>
+</div>
+  </main>
+
+
+
+
+<div id="footer-push"></div>
+  </div>
+  <footer class="main-footer">
+    <div data-grid="" class="main-footer__logo">
+      <div data-column="6">
+        <a href="https://pandarin.net/" class="custom-logo-link" rel="home"><img data-od-added-loading="" data-od-xpath="/HTML/BODY/FOOTER[@class='main-footer']/*[1][self::DIV]/*[1][self::DIV]/*[1][self::A]/*[1][self::IMG]" loading="lazy" width="300" height="72" src="https://pandarin.net/wp-content/uploads/2024/12/logo.png" class="custom-logo" alt="Pandarin" decoding="async"></a>      </div>
+      <div data-column="6">
+                <div class="footer-social">
+                      <a class="social-logo" href="https://www.youtube.com/c/pandarin" title="Kunjungi youtube kami" style="--color:#ff0100">
+              <svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847c-2.799-0.202-6.997-0.202-6.997-0.202 h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517 c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201 s4.203-0.006,7.001-0.209c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517 C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path></svg>            </a>
+                      <a class="social-logo" href="https://instagram.com/pandarin.semarang/" title="Kunjungi instagram kami" style="--color:#f00075">
+              <svg width="28" height="28" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"></path></svg>            </a>
+                      <a class="social-logo" href="https://www.facebook.com/pandarin.net" title="Kunjungi facebook kami" style="--color:#1977f2">
+              <svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"></path></svg>            </a>
+                  </div>
+      </div>
+    </div>
+
+    <div data-grid="">
+      <div data-column="4">
+        <address class="footer-address" id="my_address">
+          <p><strong>Telp</strong>: (024) 3510643<br>
+<strong>WhatsApp</strong>: <a href="https://wa.me/6282113458877" target="_blank" rel="noopener">0821 1345 8877</a><br>
+Jl. Permata Kenanga G-108 Semarang<br>
+<a href="https://www.google.co.id/maps/place/Pandarin+-+Mandarin+Learning+Center/@-6.963039,110.414356,17z/data=!3m1!4b1!4m2!3m1!1s0x2e70f4a52aa76069:0xc065ba67d7bb77e1?hl=en" target="_blank" rel="noopener">Lihat lokasi Pandarin di Google Map »</a></p>
+        </address>
+      </div>
+
+      <div data-column="8">
+        <nav class="footer-nav"><ul data-tile="4-2">
+                  <li>
+            <b>Pilihan Materi</b>
+                          <a href="https://pandarin.net/materi/percakapan/">
+                Percakapan              </a>
+                          <a href="https://pandarin.net/materi/bisnis/">
+                Bisnis              </a>
+                          <a href="https://pandarin.net/materi/hsk/">
+                Ujian HSK              </a>
+                      </li>
+                  <li>
+            <b>Pilihan Kelas</b>
+                          <a href="https://pandarin.net/kursus/privat/">
+                Kelas Privat              </a>
+                          <a href="https://pandarin.net/kursus/grup/">
+                Kelas Grup              </a>
+                      </li>
+                  <li>
+            <b>Galeri Foto</b>
+                          <a href="https://pandarin.net/galeri/">
+                Ruang Kelas              </a>
+                          <a href="https://pandarin.net/galeri/murid/">
+                Murid &amp; Guru              </a>
+                          <a href="https://pandarin.net/galeri/kegiatan/">
+                Acara &amp; Kegiatan              </a>
+                      </li>
+                  <li>
+            <b>Belajar</b>
+                          <a href="https://pandarin.net/belajar/percakapan-01/">
+                Percakapan              </a>
+                          <a href="https://pandarin.net/belajar/hsk1-chapter1/">
+                HSK              </a>
+                          <a href="https://www.youtube.com/channel/UCWgAcz_5Ip9fx_7xq-0Nkbg">
+                Musik Mandarin              </a>
+                      </li>
+                </ul></nav>
+      </div>
+
+    </div>
+
+    <div class="footer-copyright" data-grid="">
+      <div data-column="12">
+        Copyright © 2025 - All rights reserved
+        • Website designed by <a href="https://pixelstudio.id" target="_blank" style="text-decoration:underline;">Pixel Studio</a>
+        <img data-od-added-loading="" data-od-xpath="/HTML/BODY/FOOTER[@class='main-footer']/*[3][self::DIV]/*[1][self::DIV]/*[2][self::IMG]" loading="lazy" src="https://cdn.pixelstudio.id/pixelstudio/partner-logo.png" width="24" height="24">
+      </div>
+    </div>
+  </footer>
+
+  <script type="speculationrules">
+{"prerender":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/pandarin-new\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prerender, .no-prerender a"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"moderate"}]}
+</script>
+		<script>window.addEventListener( 'load', function() {
+				document.querySelectorAll( 'link' ).forEach( function( e ) {'not all' === e.media && e.dataset.media && ( e.media = e.dataset.media, delete e.dataset.media );} );
+				var e = document.getElementById( 'jetpack-boost-critical-css' );
+				e && ( e.media = 'not all' );
+			} );</script>
+			<script>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<noscript><link rel='stylesheet' id='wc-blocks-style-all-products-css' href='https://pandarin.net/wp-content/plugins/woocommerce/assets/client/blocks/all-products.css?ver=wc-10.1.2' media='all' />
+</noscript><link rel="stylesheet" id="wc-blocks-style-all-products-css" href="https://pandarin.net/wp-content/plugins/woocommerce/assets/client/blocks/all-products.css?ver=wc-10.1.2" media="all">
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/accordion-blocks/js/accordion-blocks.min.js?ver=1.5.0" id="pb-accordion-blocks-frontend-script-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=10.1.2" id="sourcebuster-js-js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/pandarin.net\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+</script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=10.1.2" id="wc-order-attribution-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/pixel-performance-lab/_dist/pxp-public.js?ver=1.0.1" id="pxp-public-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-main.js?ver=6.6.12" id="my-main-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/modules/_vendor/fancybox.js?ver=2.1.5" id="my-fancybox-js"></script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js?ver=11.0.0" id="swiper-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-speak-view.js?ver=2023.12.20" id="block-speak-view-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/_dist/block-word-view.js?ver=2024.03.13" id="block-word-view-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/_dist/my-gutenberg.js?ver=6.6.12" id="my-gutenberg-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/themes/pandarin-new/_dist/shop.js?ver=6.6.12" id="my-shop-js"></script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/edje-wc-library/dist/hwc-public.js?ver=4.3.1" id="hwc-public-js"></script>
+<script id="wc-cart-fragments-js-extra">
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_7318af8047d925720bd4b3a3f19dccca","fragment_name":"wc_fragments_7318af8047d925720bd4b3a3f19dccca","request_timeout":"5000"};
+</script>
+<script defer="defer" src="https://pandarin.net/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=10.1.2" id="wc-cart-fragments-js" data-wp-strategy="defer"></script>
+<script id="wc-cart-fragments-js-after">
+		jQuery( 'body' ).bind( 'wc_fragments_refreshed', function() {
+			var jetpackLazyImagesLoadEvent;
+			try {
+				jetpackLazyImagesLoadEvent = new Event( 'jetpack-lazy-images-load', {
+					bubbles: true,
+					cancelable: true
+				} );
+			} catch ( e ) {
+				jetpackLazyImagesLoadEvent = document.createEvent( 'Event' )
+				jetpackLazyImagesLoadEvent.initEvent( 'jetpack-lazy-images-load', true, true );
+			}
+			jQuery( 'body' ).get( 0 ).dispatchEvent( jetpackLazyImagesLoadEvent );
+		} );
+		
+</script>
+
+<script type="module">
+import detect from "https:\/\/pandarin.net\/wp-content\/plugins\/pixel-performance-lab\/pflab-optimization-detective\/detect.min.js?ver=1.0.0-beta3"; detect( {"minViewportAspectRatio":0.4,"maxViewportAspectRatio":2.5,"isDebug":false,"extensionModuleUrls":["https:\/\/pandarin.net\/wp-content\/plugins\/pixel-performance-lab\/pflab-image-prioritizer\/detect.min.js?ver=1.0.0-beta2"],"restApiEndpoint":"https:\/\/pandarin.net\/wp-json\/optimization-detective\/v1\/url-metrics:store","currentETag":"3d66ee5823e8f7a38f65e34762a63de7","currentUrl":"https:\/\/pandarin.net\/hsk\/level4\/","urlMetricSlug":"bf9a696c4bd6683cd9802788ac8a51e1","cachePurgePostId":8563,"urlMetricHMAC":"f9c526a3a27aa469abb45b0b74ea6eba","urlMetricGroupStatuses":[{"minimumViewportWidth":0,"maximumViewportWidth":480,"complete":false},{"minimumViewportWidth":480,"maximumViewportWidth":600,"complete":false},{"minimumViewportWidth":600,"maximumViewportWidth":782,"complete":true},{"minimumViewportWidth":782,"maximumViewportWidth":null,"complete":true}],"storageLockTTL":60,"freshnessTTL":604800,"webVitalsLibrarySrc":"https:\/\/pandarin.net\/wp-content\/plugins\/pixel-performance-lab\/pflab-optimization-detective\/build\/web-vitals.js?ver=4.2.4"} );
+</script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;7399bfeb0ed742c190df8f73c8c1ee0e&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+
+
+
+<div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div></body></html>
